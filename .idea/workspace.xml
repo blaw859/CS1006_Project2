@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5af4127-84e1-4ded-815b-2016d541a64a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/CS1006_Project2.iml" afterPath="$PROJECT_DIR$/.idea/CS1006_Project2.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CS1006P2/out/outputImage.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CS1006P2/src/images/TestImage.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/src/Image.java" afterPath="$PROJECT_DIR$/CS1006P2/src/Image.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/src/ImageCarver.java" afterPath="$PROJECT_DIR$/CS1006P2/src/ImageCarver.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +19,8 @@
       <file leaf-file-name="ImageCarver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageCarver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="70" lean-forward="false" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
+            <state relative-caret-position="165">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,21 +55,21 @@
       <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
-              <caret line="75" column="20" lean-forward="false" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
+            <state relative-caret-position="1065">
+              <caret line="71" column="20" lean-forward="false" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
               <folding>
-                <marker date="1520093435168" expanded="true" signature="28771:28796" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="28771:28818" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="28771:28852" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="28771:28872" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="28771:28887" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="28771:29218" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="28771:29233" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="28939:29204" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="28958:29189" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="28991:29169" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="29031:29135" ph="..." />
-                <marker date="1520093435168" expanded="true" signature="29052:29113" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="28896:28921" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="28896:28943" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="28896:28977" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="28896:28997" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="28896:29012" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="28896:29343" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="28896:29358" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="29064:29329" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="29083:29314" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="29116:29294" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="29156:29260" ph="..." />
+                <marker date="1520095392901" expanded="true" signature="29177:29238" ph="..." />
               </folding>
             </state>
           </provider>
@@ -80,8 +78,8 @@
       <file leaf-file-name="Image.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="37" column="54" lean-forward="true" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
+            <state relative-caret-position="-320">
+              <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -301,11 +299,18 @@
       <option name="presentableId" value="Default" />
       <updated>1520083691037</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added method to output an image of the energy matrix for debugging">
+      <created>1520093573324</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1520093573324</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="813" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -314,14 +319,14 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37786776" sideWeight="0.50277776" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37786776" sideWeight="0.10208333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37786776" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37786776" sideWeight="0.8979167" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32430556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32430556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -339,6 +344,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added method to output an image of the energy matrix for debugging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added method to output an image of the energy matrix for debugging" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
@@ -349,18 +358,18 @@
         <state relative-caret-position="1050">
           <caret line="70" column="24" lean-forward="true" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
           <folding>
-            <marker date="1520093435168" expanded="true" signature="28771:28796" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:28818" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:28852" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:28872" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:28887" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:29218" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:29233" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28939:29204" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28958:29189" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28991:29169" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="29031:29135" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="29052:29113" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:28921" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:28943" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:28977" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:28997" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:29012" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:29343" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:29358" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="29064:29329" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="29083:29314" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="29116:29294" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="29156:29260" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="29177:29238" ph="..." />
           </folding>
         </state>
       </provider>
@@ -377,21 +386,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="75" column="20" lean-forward="false" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
+        <state relative-caret-position="1065">
+          <caret line="71" column="20" lean-forward="false" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="20" />
           <folding>
-            <marker date="1520093435168" expanded="true" signature="28771:28796" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:28818" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:28852" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:28872" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:28887" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:29218" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28771:29233" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28939:29204" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28958:29189" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="28991:29169" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="29031:29135" ph="..." />
-            <marker date="1520093435168" expanded="true" signature="29052:29113" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:28921" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:28943" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:28977" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:28997" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:29012" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:29343" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="28896:29358" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="29064:29329" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="29083:29314" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="29116:29294" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="29156:29260" ph="..." />
+            <marker date="1520095392901" expanded="true" signature="29177:29238" ph="..." />
           </folding>
         </state>
       </provider>
@@ -404,10 +413,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/TestImage.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageCarver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="70" lean-forward="false" selection-start-line="16" selection-start-column="70" selection-end-line="16" selection-end-column="70" />
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -419,15 +433,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/TestImage.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="37" column="54" lean-forward="true" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
+        <state relative-caret-position="-320">
+          <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

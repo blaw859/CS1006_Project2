@@ -31,23 +31,26 @@ public class Image {
     //Returns an energy matrix as a 2D array of double values
     private double[][] energyMatrix() {
         double[][] energyArray;
-        energyArray = new double[bufferedImage.getNumXTiles()][bufferedImage.getNumYTiles()];
+        energyArray = new double[bufferedImage.getWidth()][bufferedImage.getHeight()];
         double energyX;
         double energyY;
 
-        for (int x = 0; x < bufferedImage.getNumXTiles() - 1; x++) {
-            for (int y = 0; y < bufferedImage.getNumYTiles() - 1; y++) {
-                int l = x - 1;
-                int r = x + 1;
-                int a = y + 1;
-                int b = y - 1;
+        for (int x = 0; x < bufferedImage.getWidth() - 1; x++) {
+            for (int y = 0; y < bufferedImage.getHeight() - 1; y++) {
+                System.out.println(bufferedImage.getWidth());
+                System.out.println(bufferedImage.getHeight());
+                System.out.println(((-1)+100)%100);
+                int l = (x - 1 + bufferedImage.getWidth())%(bufferedImage.getWidth());
+                int r = (x + 1 + bufferedImage.getWidth())%(bufferedImage.getWidth());
+                int a = (y + 1 + bufferedImage.getHeight())%(bufferedImage.getHeight());
+                int b = (y - 1 + bufferedImage.getHeight())%(bufferedImage.getHeight());
 
                 //These statements deal with the edges of the array
-                if(x == 0) l = bufferedImage.getNumXTiles() - 1;
+                /*if(x == 0) l = bufferedImage.getNumXTiles() - 1;
                 if(y == 0) a = bufferedImage.getNumYTiles() - 1;
                 if(x == bufferedImage.getNumXTiles()) r = 0;
-                if(y == bufferedImage.getNumYTiles()) b = 0;
-
+                if(y == bufferedImage.getNumYTiles()) b = 0;*/
+                System.out.println(x+" "+y+" "+l+" "+r+" "+a+" "+b);
                 int[] localRGBleft = getPixelColours(l,y);
                 int[] localRGBright = getPixelColours(r,y);
                 int[] localRGBabove = getPixelColours(x,a);
