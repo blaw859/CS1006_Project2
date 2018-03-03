@@ -10,8 +10,8 @@ public class Image {
     private double[][] energymatrix;
 
     //Constructs an image object
-    public Image(File imageFile) throws IOException{
-        bufferedImage = ImageIO.read(imageFile);
+    public Image(String imageFilePath) throws IOException{
+        bufferedImage = ImageIO.read(getClass().getResource(imageFilePath));
         energymatrix = energyMatrix();
     }
 
@@ -73,4 +73,21 @@ public class Image {
         return energymatrix;
     }
 
+    public void outputEnergyMatrix(double[][] imageArray) {
+        System.out.println(imageArray.length);
+        System.out.println(imageArray[0].length);
+        BufferedImage imgOut = new BufferedImage(imageArray.length,imageArray[0].length,BufferedImage.TYPE_BYTE_GRAY);
+        for (int y=0; y < imageArray[0].length; y++) {
+            for (int x=0; x < imageArray.length; x++) {
+                byte pixelColour = (byte) imageArray[x][y];
+                imgOut.setRGB(x,y,pixelColour);
+            }
+        }
+        try{
+           File outFile = new File ("CS1006P2/out/outputImage.png");
+           ImageIO.write(imgOut,"png",outFile);
+        } catch (IOException e) {
+            System.out.println("Error:" +e);
+        }
+    }
 }
