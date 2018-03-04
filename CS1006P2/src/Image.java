@@ -7,12 +7,12 @@ public class Image {
     private int width;
     private int height;
     private BufferedImage bufferedImage;
-    private double[][] energymatrix;
+    private double[][] energyMatrix;
 
     //Constructs an image object
     public Image(String imageFilePath) throws IOException{
         bufferedImage = ImageIO.read(getClass().getResource(imageFilePath));
-        energymatrix = energyMatrix();
+        width = bufferedImage.getWidth();
     }
 
     //Returns an array with the RGB in that order of a pixel (x,y)
@@ -28,8 +28,12 @@ public class Image {
         return rgbArray;
     }
 
+    public void createEnergyMatrix() {
+        energyMatrix = energyMatrix();
+    }
+
     //Returns an energy matrix as a 2D array of double values
-    private double[][] energyMatrix() {
+    public double[][] energyMatrix() {
         double[][] energyArray;
         energyArray = new double[bufferedImage.getWidth()][bufferedImage.getHeight()];
         double energyX;
@@ -72,8 +76,8 @@ public class Image {
         return energyArray;
     }
 
-    public double[][] getEnergymatrix() {
-        return energymatrix;
+    public double[][] getEnergyMatrix() {
+        return energyMatrix;
     }
 
     public void outputEnergyMatrix(double[][] imageArray) {
@@ -90,7 +94,21 @@ public class Image {
            File outFile = new File ("CS1006P2/out/outputImage.png");
            ImageIO.write(imgOut,"png",outFile);
         } catch (IOException e) {
-            System.out.println("Error:" +e);
+            System.out.println("Error:" + e);
         }
+    }
+
+    public double[][] compress(int seams) {
+        double[][] newImage = null; //Placeholder variable
+        /*
+        This method should preferably call the PathFinding class,
+        which will find the optimal seams and removed "seams" number of them.
+        It will then return a 2D array of RGB values, which we can then use to print the image
+        */
+        return newImage;
+    }
+
+    public int getWidth() {
+        return width;
     }
 }
