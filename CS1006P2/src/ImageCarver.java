@@ -21,9 +21,8 @@ public class ImageCarver {
             e.printStackTrace();
         }
 
-        currentImage.outputEnergyMatrix(currentImage.getEnergyMatrix());
+        currentImage.outputEnergyMatrix(currentImage.getEnergymatrix());
         */
-
-
     }
+
 }
