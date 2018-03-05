@@ -33,6 +33,8 @@ public class Image {
     private int[] getPixelColours(int x,int y) {
         int[] rgbArray = new int[3];
         //.getRGB returns the colour in an ARGB format so we have to manipulate argbColour to get the individual RGB
+        //System.out.println("X"+x);
+        //System.out.println("Y"+y);
         int argbColour = bufferedImage.getRGB(x,y);
         //For all of the colours we use bitwise and and then bitshift the value by an amount so that the individual RGB
         //colours can be isolated in each pixel
@@ -53,8 +55,8 @@ public class Image {
         double energyX;
         double energyY;
 
-        for (int x = 0; x < bufferedImage.getWidth() - 1; x++) {
-            for (int y = 0; y < bufferedImage.getHeight() - 1; y++) {
+        for (int x = 0; x < bufferedImage.getWidth(); x++) {
+            for (int y = 0; y < bufferedImage.getHeight(); y++) {
                 //System.out.println(bufferedImage.getWidth());
                 //System.out.println(bufferedImage.getHeight());
                 //System.out.println(((-1)+100)%100);
