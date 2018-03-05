@@ -42,9 +42,9 @@ public class Image {
 
         for (int x = 0; x < bufferedImage.getWidth() - 1; x++) {
             for (int y = 0; y < bufferedImage.getHeight() - 1; y++) {
-                System.out.println(bufferedImage.getWidth());
-                System.out.println(bufferedImage.getHeight());
-                System.out.println(((-1)+100)%100);
+                //System.out.println(bufferedImage.getWidth());
+                //System.out.println(bufferedImage.getHeight());
+                //System.out.println(((-1)+100)%100);
                 int l = (x - 1 + bufferedImage.getWidth())%(bufferedImage.getWidth());
                 int r = (x + 1 + bufferedImage.getWidth())%(bufferedImage.getWidth());
                 int a = (y + 1 + bufferedImage.getHeight())%(bufferedImage.getHeight());
@@ -55,7 +55,7 @@ public class Image {
                 if(y == 0) a = bufferedImage.getNumYTiles() - 1;
                 if(x == bufferedImage.getNumXTiles()) r = 0;
                 if(y == bufferedImage.getNumYTiles()) b = 0;*/
-                System.out.println(x+" "+y+" "+l+" "+r+" "+a+" "+b);
+                //System.out.println(x+" "+y+" "+l+" "+r+" "+a+" "+b);
                 int[] localRGBleft = getPixelColours(l,y);
                 int[] localRGBright = getPixelColours(r,y);
                 int[] localRGBabove = getPixelColours(x,a);
@@ -83,8 +83,8 @@ public class Image {
     }
 
     public void outputEnergyMatrix(double[][] imageArray) {
-        System.out.println(imageArray.length);
-        System.out.println(imageArray[0].length);
+        //System.out.println(imageArray.length);
+        //System.out.println(imageArray[0].length);
         BufferedImage imgOut = new BufferedImage(imageArray.length,imageArray[0].length,BufferedImage.TYPE_BYTE_GRAY);
         for (int y=0; y < imageArray[0].length; y++) {
             for (int x=0; x < imageArray.length; x++) {
