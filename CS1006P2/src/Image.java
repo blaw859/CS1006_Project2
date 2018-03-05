@@ -13,6 +13,7 @@ public class Image {
     public Image(String imageFilePath) throws IOException {
         bufferedImage = ImageIO.read(getClass().getResource(imageFilePath));
         width = bufferedImage.getWidth();
+        energyMatrix = energyMatrix();
     }
 
     //Returns an array with the RGB in that order of a pixel (x,y)
@@ -28,9 +29,9 @@ public class Image {
         return rgbArray;
     }
 
-    public void createEnergyMatrix() {
+    /*public void createEnergyMatrix() {
         energyMatrix = energyMatrix();
-    }
+    }*/
 
     //Returns an energy matrix as a 2D array of double values
     public double[][] energyMatrix() {
@@ -77,6 +78,7 @@ public class Image {
     }
 
     public double[][] getEnergyMatrix() {
+        System.out.println("Getting");
         return energyMatrix;
     }
 

@@ -8,6 +8,7 @@ public class SeamCarver {
     public static void initializeWeights(Image imageToCarve) {
         double[][] energyMatrix = imageToCarve.getEnergyMatrix();
         for (int y=0; y < energyMatrix[0].length; y++) {
+            System.out.println(y);
             for (int x=0; x < energyMatrix.length; x++) {
                 if(y == 0) {
                     verticalWeights[x][y] = energyMatrix[x][y];
