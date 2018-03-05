@@ -85,7 +85,7 @@ public class ProjectGUI extends JFrame {
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     file = fileChooser.getSelectedFile();
                     filePath = file.getAbsolutePath();
-                    if (file.exists()) {
+                    if (file.exists() && (filePath.endsWith(".png") || filePath.endsWith(".jpg") || filePath.endsWith(".jpeg"))) {
                         text1.setText(file.getName() + " is selected");
                         try {
                             image = new Image(filePath);
@@ -112,7 +112,7 @@ public class ProjectGUI extends JFrame {
                     } catch (IOException exception) {
                         System.out.println("Error " + exception); //Needs to be changed
                     }
-                    image.createEnergyMatrix(); //The energy matrix is calculated
+                    //image.createEnergyMatrix(); //The energy matrix is calculated
                     image.compress(image.getWidth()-resolution); //Method not yet implemented
                 }
             }

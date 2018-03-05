@@ -6,11 +6,11 @@ public class ImageCarver {
     public static Image currentImage;
     public static void main(String[] args){
 
-        EventQueue.invokeLater(() -> {
+        /*EventQueue.invokeLater(() -> {
             ProjectGUI ex = new ProjectGUI();
             ex.setVisible(true);
-        });
-        /*
+        });*/
+
         File imageFile = new File(args[0]);
         System.out.println(imageFile.canRead());
         System.out.println(imageFile.canWrite());
@@ -20,9 +20,10 @@ public class ImageCarver {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(currentImage);
+        //SeamCarver.initializeWeights(currentImage);
+        currentImage.outputEnergyMatrix(currentImage.getEnergyMatrix());
 
-        currentImage.outputEnergyMatrix(currentImage.getEnergymatrix());
-        */
     }
 
 }
