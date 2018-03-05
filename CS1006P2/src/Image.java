@@ -11,6 +11,8 @@ public class Image {
 
     //Constructs an image object
     public Image(String imageFilePath) throws IOException {
+        //imageFilePath = imageFilePath.replaceAll("\\\\","/");
+        //System.out.println(imageFilePath);
         bufferedImage = ImageIO.read(getClass().getResource(imageFilePath));
         width = bufferedImage.getWidth();
         energyMatrix = energyMatrix();
