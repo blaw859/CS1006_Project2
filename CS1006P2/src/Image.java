@@ -10,7 +10,7 @@ public class Image {
     private double[][] energyMatrix;
 
     //Constructs an image object
-    public Image(String imageFilePath) throws IOException{
+    public Image(String imageFilePath) throws IOException {
         bufferedImage = ImageIO.read(getClass().getResource(imageFilePath));
         width = bufferedImage.getWidth();
     }
