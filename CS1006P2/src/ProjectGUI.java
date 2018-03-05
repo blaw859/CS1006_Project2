@@ -112,8 +112,9 @@ public class ProjectGUI extends JFrame {
                     } catch (IOException exception) {
                         System.out.println("Error " + exception); //Needs to be changed
                     }
-                    //image.createEnergyMatrix(); //The energy matrix is calculated
-                    image.compress(image.getWidth()-resolution); //Method not yet implemented
+                    image.createEnergyMatrix(); //The energy matrix is calculated
+                    SeamCarver.initializeWeights(image);
+                    image.carve(image.getWidth()-resolution); //Method not yet implemented
                 }
             }
         });

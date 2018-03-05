@@ -6,12 +6,12 @@ public class ImageCarver {
     public static Image currentImage;
     public static void main(String[] args){
 
-        /*EventQueue.invokeLater(() -> {
+        EventQueue.invokeLater(() -> {
             ProjectGUI ex = new ProjectGUI();
             ex.setVisible(true);
-        });*/
+        });
 
-
+        /*
         String filePath = args[0];
         filePath = "\\images\\TestImage2.jpg";
 
@@ -27,6 +27,7 @@ public class ImageCarver {
         System.out.println(currentImage);
         SeamCarver.initializeWeights(currentImage);
         currentImage.outputEnergyMatrix(currentImage.getEnergyMatrix());
+        */
 
     }
 

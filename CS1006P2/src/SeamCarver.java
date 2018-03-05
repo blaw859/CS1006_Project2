@@ -7,10 +7,16 @@ public class SeamCarver {
 
     public static void initializeWeights(Image imageToCarve) {
         double[][] energyMatrix = imageToCarve.getEnergyMatrix();
-        for (int y=0; y < energyMatrix[0].length; y++) {
-            System.out.println(y);
-            for (int x=0; x < energyMatrix.length; x++) {
+        verticalWeights = new double[energyMatrix[0].length][energyMatrix.length];
+        horizontalWeights = new double[energyMatrix.length][energyMatrix[0].length];
+        System.out.println(energyMatrix.length);
+        System.out.println(energyMatrix[0].length);
+
+        for (int y=0; y < energyMatrix.length; y++) {
+            //System.out.println(y);
+            for (int x=0; x < energyMatrix[0].length; x++) {
                 if(y == 0) {
+                    //System.out.println(x);
                     verticalWeights[x][y] = energyMatrix[x][y];
                 } else {
                     double aboveLeft = verticalWeights[((x-1)+verticalWeights.length)%verticalWeights.length][y-1];
@@ -18,7 +24,7 @@ public class SeamCarver {
                     double aboveRight = verticalWeights[((x+1)+verticalWeights.length)%verticalWeights.length][y-1];
                     double[] choices = {aboveLeft,above,aboveRight};
                     Arrays.sort(choices);
-                    verticalWeights[x][y] = choices[0] + energyMatrix[x][y];
+                    verticalWeights[x][y] = (choices[0] + energyMatrix[x][y]);
                 }
             }
         }
