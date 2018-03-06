@@ -2,6 +2,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.awt.Color;
 
 public class Image {
     private int width;
@@ -9,13 +10,20 @@ public class Image {
     private BufferedImage bufferedImage;
     private double[][] energyMatrix;
 
+    //private BufferedImage energyMatrixImage;
+    private File energyMatrixImage;
+
     //Constructs an image object
     public Image(String imageFilePath) throws IOException {
         //imageFilePath = imageFilePath.replaceAll("\\\\","/");
         System.out.println(imageFilePath);
         bufferedImage = ImageIO.read(getClass().getResource(imageFilePath));
+        //bufferedImage = ImageIO.read(getClass().getResource("/TestImage.jpg"));
+
         width = bufferedImage.getWidth();
-        //energyMatrix = energyMatrix();
+        height = bufferedImage.getHeight();
+        energyMatrix = energyMatrix();
+        outputEnergyMatrix(energyMatrix);
     }
 
     //Returns an array with the RGB in that order of a pixel (x,y)
@@ -88,18 +96,27 @@ public class Image {
         //System.out.println(imageArray.length);
         //System.out.println(imageArray[0].length);
         BufferedImage imgOut = new BufferedImage(imageArray.length,imageArray[0].length,BufferedImage.TYPE_BYTE_GRAY);
+        File outFile = null;
         for (int y=0; y < imageArray[0].length; y++) {
             for (int x=0; x < imageArray.length; x++) {
                 byte pixelColour = (byte) imageArray[x][y];
-                imgOut.setRGB(x,y,pixelColour);
+                //int argb = (pixelColour << 24);
+                //argb |= pixelColour << 24;
+                //int pixelColourInt = pixelColour;
+                int pixelColourInt = Color.HSBtoRGB(0, 0, pixelColour);
+                pixelColourInt = (pixelColourInt)*150;
+                System.out.println(pixelColourInt);
+                imgOut.setRGB(x,y,pixelColourInt);
             }
         }
         try{
-           File outFile = new File ("CS1006P2/out/outputImage.png");
+           outFile = new File ("CS1006P2/out/outputImage.png");
            ImageIO.write(imgOut,"png",outFile);
         } catch (IOException e) {
             System.out.println("Error:" + e);
         }
+        //energyMatrixImage = imgOut;
+        energyMatrixImage = outFile;
     }
 
     public double[][] carve(int seams) {
@@ -112,7 +129,20 @@ public class Image {
         return newImage;
     }
 
+    public BufferedImage getBufferedImage() {
+        return bufferedImage;
+    }
+
     public int getWidth() {
         return width;
     }
+
+    public int getHeight() {
+        return  height;
+    }
+
+    public File getEnergyMatrixImage() {
+        return energyMatrixImage;
+    }
+
 }

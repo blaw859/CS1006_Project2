@@ -1,21 +1,18 @@
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JSlider;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.File;
 import javax.swing.event.ChangeEvent;
-import javax.swing.JFileChooser;
-import javax.swing.JButton;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.FileFilter;
 import javax.imageio.ImageIO;
+import java.awt.Color;
 
 public class ProjectGUI extends JFrame {
 
-    private Image image;
+    private Image image = null;
     private File file;
     private String filePath;
     private int resolution;
@@ -26,6 +23,17 @@ public class ProjectGUI extends JFrame {
     }
 
     private void initUI() {
+
+        JFrame frame2 = new JFrame("New Image");
+        frame2.setVisible(false);
+        frame2.setBackground(Color.GREEN);
+        frame2.getContentPane().setBackground(Color.GREEN);
+
+        JPanel imagePanel = new JPanel();
+
+        JPanel energyPanel = new JPanel();
+        energyPanel.setBackground(Color.GREEN);
+        energyPanel.setOpaque(true);
 
         setTitle("Image Carver");
         setLocationRelativeTo(null);
@@ -75,9 +83,6 @@ public class ProjectGUI extends JFrame {
         fileChooser.setBounds(100,100,200,200);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
-        //I am working on only allowing image files
-        //FileFilter imageFilter = new FileNameExtensionFilter("Image files", ImageIO.getReaderFileSuffixes());
-
         fileChooser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,9 +92,13 @@ public class ProjectGUI extends JFrame {
                     filePath = file.getAbsolutePath();
                     if (filePath.contains("src")) {
                         filePath = filePath.substring(filePath.indexOf("src") + 3, filePath.length());
-                        filePath = filePath.toLowerCase();
+                        //filePath = filePath.toLowerCase();
                     }
-                    if (file.exists() && (filePath.endsWith(".png") || filePath.endsWith(".jpg") || filePath.endsWith(".jpeg"))) {
+                    if (file.exists() && (filePath.endsWith(".png")
+                            || filePath.endsWith(".jpg")
+                            || filePath.endsWith(".jpeg")
+                            || filePath.endsWith(".JPG"))) {
+
                         text1.setText(file.getName() + " is selected");
                         try {
                             image = new Image(filePath);
@@ -99,6 +108,25 @@ public class ProjectGUI extends JFrame {
                         slider.setMaximum(image.getWidth());
                         slider.setVisible(true);
                         button.setVisible(true);
+                        JLabel imageLabel = new JLabel(new ImageIcon(image.getBufferedImage()));
+                        BufferedImage energyImage = null;
+                        try {
+                            energyImage = ImageIO.read(image.getEnergyMatrixImage());
+                        } catch (IOException exception) {
+                            System.out.println("Error: " + exception);
+                        }
+                        //JLabel energyLabel = new JLabel(new ImageIcon(image.getEnergyMatrixImage()));
+                        JLabel energyLabel = new JLabel(new ImageIcon("CS1006P2/out/outputImage.png"));
+                        energyPanel.add(energyLabel);
+                        energyPanel.setAlignmentY(JPanel.BOTTOM_ALIGNMENT);
+                        energyPanel.setBounds(0, image.getHeight(), image.getWidth(), image.getHeight());
+                        energyPanel.setVisible(true);
+                        imagePanel.add(imageLabel);
+                        imagePanel.setAlignmentY(JPanel.TOP_ALIGNMENT);
+                        frame2.add(imagePanel);
+                        frame2.setSize(image.getWidth() + 20, image.getHeight()*2 + 20);
+
+                        frame2.setVisible(true);
                     }
                 }
             }
@@ -116,7 +144,6 @@ public class ProjectGUI extends JFrame {
                     } catch (IOException exception) {
                         System.out.println("Error " + exception); //Needs to be changed
                     }
-                    image.createEnergyMatrix(); //The energy matrix is calculated
                     SeamCarver.initializeWeights(image);
                     image.carve(image.getWidth()-resolution); //Method not yet implemented
                 }
