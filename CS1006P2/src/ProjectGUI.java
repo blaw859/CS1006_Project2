@@ -85,6 +85,10 @@ public class ProjectGUI extends JFrame {
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     file = fileChooser.getSelectedFile();
                     filePath = file.getAbsolutePath();
+                    if (filePath.contains("src")) {
+                        filePath = filePath.substring(filePath.indexOf("src") + 3, filePath.length());
+                        filePath = filePath.toLowerCase();
+                    }
                     if (file.exists() && (filePath.endsWith(".png") || filePath.endsWith(".jpg") || filePath.endsWith(".jpeg"))) {
                         text1.setText(file.getName() + " is selected");
                         try {
