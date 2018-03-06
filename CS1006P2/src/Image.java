@@ -105,7 +105,7 @@ public class Image {
                 //int pixelColourInt = pixelColour;
                 int pixelColourInt = Color.HSBtoRGB(0, 0, pixelColour);
                 pixelColourInt = (pixelColourInt)*150;
-                System.out.println(pixelColourInt);
+                //System.out.println(pixelColourInt);
                 imgOut.setRGB(x,y,pixelColourInt);
             }
         }

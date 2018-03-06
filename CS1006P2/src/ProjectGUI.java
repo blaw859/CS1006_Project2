@@ -26,13 +26,12 @@ public class ProjectGUI extends JFrame {
 
         JFrame frame2 = new JFrame("New Image");
         frame2.setVisible(false);
-        frame2.setBackground(Color.GREEN);
-        frame2.getContentPane().setBackground(Color.GREEN);
+        frame2.getContentPane().setBackground(Color.BLACK);
 
         JPanel imagePanel = new JPanel();
 
         JPanel energyPanel = new JPanel();
-        energyPanel.setBackground(Color.GREEN);
+        //energyPanel.setBackground(Color.GRAY);
         energyPanel.setOpaque(true);
 
         setTitle("Image Carver");
@@ -92,7 +91,6 @@ public class ProjectGUI extends JFrame {
                     filePath = file.getAbsolutePath();
                     if (filePath.contains("src")) {
                         filePath = filePath.substring(filePath.indexOf("src") + 3, filePath.length());
-                        //filePath = filePath.toLowerCase();
                     }
                     if (file.exists() && (filePath.endsWith(".png")
                             || filePath.endsWith(".jpg")
@@ -115,16 +113,22 @@ public class ProjectGUI extends JFrame {
                         } catch (IOException exception) {
                             System.out.println("Error: " + exception);
                         }
-                        //JLabel energyLabel = new JLabel(new ImageIcon(image.getEnergyMatrixImage()));
                         JLabel energyLabel = new JLabel(new ImageIcon("CS1006P2/out/outputImage.png"));
+                        energyLabel.setAlignmentY(LEFT_ALIGNMENT);
+
                         energyPanel.add(energyLabel);
-                        energyPanel.setAlignmentY(JPanel.BOTTOM_ALIGNMENT);
-                        energyPanel.setBounds(0, image.getHeight(), image.getWidth(), image.getHeight());
+                        energyPanel.setAlignmentY(JPanel.LEFT_ALIGNMENT);
+                        energyPanel.setBounds(5, 5, image.getWidth(), image.getHeight());
                         energyPanel.setVisible(true);
+
                         imagePanel.add(imageLabel);
-                        imagePanel.setAlignmentY(JPanel.TOP_ALIGNMENT);
+                        imagePanel.setAlignmentY(JPanel.RIGHT_ALIGNMENT);
+                        imagePanel.setBounds(5,image.getHeight(),image.getWidth(), image.getHeight());
+                        imagePanel.setVisible(true);
+
                         frame2.add(imagePanel);
-                        frame2.setSize(image.getWidth() + 20, image.getHeight()*2 + 20);
+                        frame2.add(energyPanel);
+                        frame2.setSize(image.getWidth() + 20, image.getHeight()*2 + 50);
 
                         frame2.setVisible(true);
                     }
@@ -139,11 +143,11 @@ public class ProjectGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (file != null && resolution > minResolution) { //Minimum resolution is currently at 10px
-                    try {
-                        image = new Image(filePath);
-                    } catch (IOException exception) {
-                        System.out.println("Error " + exception); //Needs to be changed
-                    }
+                    //try {
+                     //   image = new Image(filePath);
+                    //} catch (IOException exception) {
+                    //    System.out.println("Error " + exception); //Needs to be changed
+                    //}
                     SeamCarver.initializeWeights(image);
                     image.carve(image.getWidth()-resolution); //Method not yet implemented
                 }
