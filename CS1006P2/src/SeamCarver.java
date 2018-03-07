@@ -9,8 +9,8 @@ public class SeamCarver {
         double[][] energyMatrix = imageToCarve.getEnergyMatrix();
         verticalWeights = new double[energyMatrix[0].length][energyMatrix.length];
         horizontalWeights = new double[energyMatrix.length][energyMatrix[0].length];
-        System.out.println(energyMatrix.length + "x length");
-        System.out.println(energyMatrix[0].length + "y length");
+        //System.out.println(energyMatrix.length + "x length");
+        //System.out.println(energyMatrix[0].length + "y length");
         for (int y=0; y < energyMatrix.length; y++) {
             //System.out.println(y);
             for (int x=0; x < energyMatrix[0].length; x++) {

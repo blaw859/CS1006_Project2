@@ -3,6 +3,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
+import java.util.Queue;
+import java.util.Iterator;
+import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 
 public class Image {
     private int width;
@@ -104,8 +107,11 @@ public class Image {
                 //argb |= pixelColour << 24;
                 //int pixelColourInt = pixelColour;
                 int pixelColourInt = Color.HSBtoRGB(0, 0, pixelColour);
-                pixelColourInt = (pixelColourInt)*150;
-                //System.out.println(pixelColourInt);
+                pixelColourInt *= 150;
+                if (imageArray[x][y] == 0 || pixelColourInt > 0) {
+                    pixelColourInt = 0;
+                }
+                pixelColourInt *= -1;
                 imgOut.setRGB(x,y,pixelColourInt);
             }
         }
@@ -129,6 +135,30 @@ public class Image {
         return newImage;
     }
 
+    private int[][] removeSeams(Queue<int[]> q) {
+        int[][] newImage = null;
+        for (int[] iterate: q) {
+            //BufferedImage newImageBuffer = new BufferedImage(bufferedImage.getWidth() - q.size(), bufferedImage.getHeight(), TYPE_INT_ARGB);
+            if (newImage != null) {
+                newImage = new int[newImage.length - 1][newImage[0].length];
+            } else {
+                newImage = new int[bufferedImage.getWidth()][bufferedImage.getHeight()];
+            }
+
+            for (int x = 0, x1 = 0; x < newImage.length; x++) {
+                for (int y = 0, y1 = 0; y < newImage[0].length; y++) {
+                    if (!(iterate[y] == x)) {
+                        newImage[x1][y1] = bufferedImage.getRGB(x,y);
+                        //newImageBuffer.setRGB(x1,y1,bufferedImage.getRGB(x,y));
+                        y1++;
+                        x1++;
+                    }
+                }
+            }
+        }
+        return newImage;
+    }
+
     public BufferedImage getBufferedImage() {
         return bufferedImage;
     }
@@ -139,10 +169,6 @@ public class Image {
 
     public int getHeight() {
         return  height;
-    }
-
-    public File getEnergyMatrixImage() {
-        return energyMatrixImage;
     }
 
 }

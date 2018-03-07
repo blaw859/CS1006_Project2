@@ -9,6 +9,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.FileFilter;
 import javax.imageio.ImageIO;
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.Dimension;
 
 public class ProjectGUI extends JFrame {
 
@@ -24,20 +26,24 @@ public class ProjectGUI extends JFrame {
 
     private void initUI() {
 
+        Dimension monitor = Toolkit.getDefaultToolkit().getScreenSize();
+
         JFrame frame2 = new JFrame("New Image");
+        frame2.setLocation((monitor.width)/2-(getSize().width)/2, 0);
         frame2.setVisible(false);
-        frame2.getContentPane().setBackground(Color.BLACK);
+        frame2.setResizable(false);
 
         JPanel imagePanel = new JPanel();
 
         JPanel energyPanel = new JPanel();
-        //energyPanel.setBackground(Color.GRAY);
+        energyPanel.setBackground(Color.getHSBColor(194,194,163));
         energyPanel.setOpaque(true);
 
+        setLocation((monitor.width/2)-(getSize().width/2) - 450, (monitor.height/2)-(getSize().height/2) - 200);
         setTitle("Image Carver");
-        setLocationRelativeTo(null);
+        setResizable(false);
         setVisible(true);
-        setSize(1000,400);
+        setSize(900,400);
 
         JPanel topPanel = new JPanel();
 
@@ -56,12 +62,11 @@ public class ProjectGUI extends JFrame {
         topPanel.add(text2);
         topPanel.add(button);
         topPanel.setVisible(true);
-        topPanel.setBounds(0,0,200,100);
-        topPanel.setAlignmentY(JLabel.TOP_ALIGNMENT);
+        topPanel.setBounds(4,2,200,100);
+        topPanel.setAlignmentX(JLabel.LEFT_ALIGNMENT);
 
-        bottomPanel.setBounds(0,300,200,200);
-        bottomPanel.setAlignmentY(JLabel.RIGHT_ALIGNMENT);
-
+        //bottomPanel.setBounds(0,300,200,200);
+        bottomPanel.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
 
         //Adds the slider which is used to select the new resolution
         //The max resolution is at 0, until an image is selected
@@ -77,6 +82,8 @@ public class ProjectGUI extends JFrame {
 
         //This class will allow the user to select an image easily
         JFileChooser fileChooser = new JFileChooser();
+        File currentDir = new File(System.getProperty("user.dir"));
+        fileChooser.setCurrentDirectory(currentDir);
         fileChooser.setVisible(true);
         bottomPanel.add(fileChooser);
         fileChooser.setBounds(100,100,200,200);
@@ -106,13 +113,9 @@ public class ProjectGUI extends JFrame {
                         slider.setMaximum(image.getWidth());
                         slider.setVisible(true);
                         button.setVisible(true);
+
                         JLabel imageLabel = new JLabel(new ImageIcon(image.getBufferedImage()));
-                        BufferedImage energyImage = null;
-                        try {
-                            energyImage = ImageIO.read(image.getEnergyMatrixImage());
-                        } catch (IOException exception) {
-                            System.out.println("Error: " + exception);
-                        }
+
                         JLabel energyLabel = new JLabel(new ImageIcon("CS1006P2/out/outputImage.png"));
                         energyLabel.setAlignmentY(LEFT_ALIGNMENT);
 
@@ -123,7 +126,7 @@ public class ProjectGUI extends JFrame {
 
                         imagePanel.add(imageLabel);
                         imagePanel.setAlignmentY(JPanel.RIGHT_ALIGNMENT);
-                        imagePanel.setBounds(5,image.getHeight(),image.getWidth(), image.getHeight());
+                        imagePanel.setBounds(3,image.getHeight() + 5,image.getWidth(), image.getHeight());
                         imagePanel.setVisible(true);
 
                         frame2.add(imagePanel);
