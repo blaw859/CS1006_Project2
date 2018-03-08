@@ -5,9 +5,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.File;
 import javax.swing.event.ChangeEvent;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import java.io.FileFilter;
-import javax.imageio.ImageIO;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.Dimension;
@@ -29,7 +26,7 @@ public class ProjectGUI extends JFrame {
         Dimension monitor = Toolkit.getDefaultToolkit().getScreenSize();
 
         JFrame frame2 = new JFrame("New Image");
-        frame2.setLocation((monitor.width)/2-(getSize().width)/2, 0);
+        frame2.setLocation((((monitor.width)/3)*2-(getSize().width)/2), 0);
         frame2.setVisible(false);
         frame2.setResizable(false);
 
@@ -43,11 +40,14 @@ public class ProjectGUI extends JFrame {
         setTitle("Image Carver");
         setResizable(false);
         setVisible(true);
-        setSize(900,400);
+        setSize(970,400);
 
         JPanel topPanel = new JPanel();
+        topPanel.setBackground(Color.getHSBColor(150,93,90));
+        topPanel.setOpaque(true);
 
         JPanel bottomPanel = new JPanel();
+        bottomPanel.setBackground(Color.getHSBColor(200,94,105));
 
         JButton button = new JButton("Confirm selection");
         button.setVisible(false);
@@ -62,7 +62,7 @@ public class ProjectGUI extends JFrame {
         topPanel.add(text2);
         topPanel.add(button);
         topPanel.setVisible(true);
-        topPanel.setBounds(4,2,200,100);
+        topPanel.setBounds(5,12,200,100);
         topPanel.setAlignmentX(JLabel.LEFT_ALIGNMENT);
 
         //bottomPanel.setBounds(0,300,200,200);
@@ -75,6 +75,7 @@ public class ProjectGUI extends JFrame {
         slider.setMinorTickSpacing(1);
         slider.setMajorTickSpacing(10);
         slider.setPaintTicks(true);
+        slider.setBackground(Color.getHSBColor(150,93,90));
         slider.addChangeListener((ChangeEvent event) -> {
             resolution = slider.getValue();
             text2.setText("Selected Resolution: " + Integer.toString(resolution));
@@ -82,7 +83,7 @@ public class ProjectGUI extends JFrame {
 
         //This class will allow the user to select an image easily
         JFileChooser fileChooser = new JFileChooser();
-        File currentDir = new File(System.getProperty("user.dir"));
+        File currentDir = new File(System.getProperty("user.dir") + "/CS1006P2/src/images");
         fileChooser.setCurrentDirectory(currentDir);
         fileChooser.setVisible(true);
         bottomPanel.add(fileChooser);
@@ -151,8 +152,15 @@ public class ProjectGUI extends JFrame {
                     //} catch (IOException exception) {
                     //    System.out.println("Error " + exception); //Needs to be changed
                     //}
-
-
+                    int verticalSeams = image.getWidth()-resolution;
+                    SeamCarver.setEnergyMatrices(image);
+                    BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams));
+                    JFrame frame3 = new JFrame("Carved Image");
+                    JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
+                    newImageLabel.setSize(200,200);
+                    frame3.add(newImageLabel);
+                } else if (minResolution > resolution) {
+                    text2.setText("Resolution less than 10!");
                 }
             }
         });

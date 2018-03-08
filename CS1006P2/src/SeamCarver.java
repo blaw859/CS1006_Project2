@@ -1,6 +1,5 @@
 import java.util.*;
 
-import static java.lang.Boolean.FALSE;
 public class SeamCarver {
     public static double[][] verticalWeights;
     public static double[][] horizontalWeights;
@@ -49,13 +48,17 @@ public class SeamCarver {
         double[][] weightArray = initialWeightArray;
         Queue<int[]> seamsToRemove = new LinkedList<>();
         for(int k = 0; k < numberOfSeams; k++) {
-            int yLength = weightArray[0].length;
-            int xLength = weightArray.length;
+
+            int yLength = initialWeightArray[0].length;
+            int xLength = initialWeightArray.length;
+            System.out.println(xLength);
             int currentX = 0;
             int[] seam = new int[yLength];
             double lowestWeight = Double.MAX_VALUE;
-            System.out.println(yLength);
+
             for (int i = 0; i < xLength; i++) {
+                //System.out.println(i);
+                //System.out.println();
                 if (weightArray[i][yLength-1] < lowestWeight) {
                     lowestWeight = weightArray[i][yLength-1];
                     currentX = i;
@@ -103,7 +106,6 @@ public class SeamCarver {
                 }
             }
         }
-        System.out.println("Output Array Width is: "+outputArray.length);
         return outputArray;
     }
 
