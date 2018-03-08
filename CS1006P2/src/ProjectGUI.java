@@ -1,3 +1,4 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -146,21 +147,34 @@ public class ProjectGUI extends JFrame {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (file != null && resolution > minResolution) { //Minimum resolution is currently at 10px
+                if (file != null /*&& resolution > minResolution*/) { //Minimum resolution is currently at 10px
                     //try {
-                     //   image = new Image(filePath);
+                    //   image = new Image(filePath);
                     //} catch (IOException exception) {
                     //    System.out.println("Error " + exception); //Needs to be changed
                     //}
-                    int verticalSeams = image.getWidth()-resolution;
+                    int verticalSeams = image.getWidth() - resolution;
                     SeamCarver.setEnergyMatrices(image);
-                    BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams));
+                    BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams));
+
                     JFrame frame3 = new JFrame("Carved Image");
+
                     JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
-                    newImageLabel.setSize(200,200);
+                    newImageLabel.setSize(200, 200);
+
                     frame3.add(newImageLabel);
-                } else if (minResolution > resolution) {
-                    text2.setText("Resolution less than 10!");
+                    frame3.setVisible(true);
+                    frame3.pack();
+
+                    try {
+                        File carvedImage = new File("CS1006P2/out/carvedImage.png");
+                        ImageIO.write(outputImage, "png", carvedImage);
+                    } catch (IOException exception) {
+                        System.out.println("Error: " + exception);
+                    }
+                    //} else if (minResolution > resolution) {
+                    //    text2.setText("Resolution less than 10!");
+                    //}
                 }
             }
         });

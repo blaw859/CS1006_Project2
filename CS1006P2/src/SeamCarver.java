@@ -49,8 +49,8 @@ public class SeamCarver {
         Queue<int[]> seamsToRemove = new LinkedList<>();
         for(int k = 0; k < numberOfSeams; k++) {
 
-            int yLength = initialWeightArray[0].length;
-            int xLength = initialWeightArray.length;
+            int yLength = weightArray[0].length;
+            int xLength = weightArray.length;
             System.out.println(xLength);
             int currentX = 0;
             int[] seam = new int[yLength];

@@ -139,20 +139,28 @@ public class Image {
 
     public BufferedImage removeSeams(Queue<int[]> q) {
         int[][] newImage = null;
+        int off;
+        int[][] seam;
+        int xRGB = 0;
         for (int[] iterate: q) {
             if (newImage != null) {
                 newImage = new int[newImage.length - 1][newImage[0].length];
             } else {
-                newImage = new int[bufferedImage.getWidth()][bufferedImage.getHeight()];
+                newImage = new int[bufferedImage.getWidth() - 1][bufferedImage.getHeight()];
             }
-
-            for (int y = 0, y1 = 0; y < newImage.length; y++) {
-                for (int x = 0, x1 = 0; x < newImage[0].length; x++) {
-                    if (!(iterate[y] == x)) {
-                        newImage[x1][y1] = bufferedImage.getRGB(x,y);
-                        x1++;
+            for (int y = 0, y1 = 0; y < newImage[0].length; y++) {
+                off = 0;
+                for (int x = 0, x1 = 0; x < newImage.length; x++) {
+                    xRGB = x1 - off;
+                    if (xRGB < 0) {
+                        xRGB = 0;
                     }
-
+                    if (!(iterate[y] == x)) {
+                        newImage[x1][y1] = bufferedImage.getRGB(xRGB,y);
+                        x1++;
+                    } else {
+                        off++;
+                    }
                 }
                 y1++;
             }
@@ -161,9 +169,9 @@ public class Image {
     }
 
     private BufferedImage imageArrayToImage(int[][] imageArray) {
-        BufferedImage outputImage = new BufferedImage(imageArray[0].length,imageArray.length,BufferedImage.TYPE_4BYTE_ABGR);
-        for (int y = 0; y <imageArray.length; y++) {
-            for (int x = 0; x < imageArray[0].length; x++) {
+        BufferedImage outputImage = new BufferedImage(imageArray.length,imageArray[0].length,BufferedImage.TYPE_4BYTE_ABGR);
+        for (int y = 0; y <imageArray[0].length; y++) {
+            for (int x = 0; x < imageArray.length; x++) {
                 outputImage.setRGB(x,y,imageArray[x][y]);
             }
         }
