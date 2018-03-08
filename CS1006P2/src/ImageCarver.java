@@ -1,4 +1,5 @@
 import java.awt.EventQueue;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -11,15 +12,18 @@ public class ImageCarver {
             ex.setVisible(true);
         });*/
 
-        File imageFile = new File(args[0]);
+        //File imageFile = new File(args[0]);
         /*System.out.println(imageFile.canRead());
         System.out.println(imageFile.canWrite());
         System.out.println(imageFile.canExecute());*/
         try {
-            currentImage = new Image(args[0]);
+            currentImage = new Image("/images/TestImage.jpg");
         } catch (IOException e) {
             e.printStackTrace();
         }
+        int verticalSeams = 3;
+        SeamCarver.setEnergyMatrices(currentImage);
+        BufferedImage outputImage = currentImage.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams));
         //System.out.println(currentImage);
         /*SeamCarver.initializeWeights(currentImage.getEnergyMatrix());
         SeamCarver.*/

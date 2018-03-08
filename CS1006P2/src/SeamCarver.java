@@ -49,15 +49,15 @@ public class SeamCarver {
         double[][] weightArray = initialWeightArray;
         Queue<int[]> seamsToRemove = new LinkedList<>();
         for(int k = 0; k < numberOfSeams; k++) {
-            int yLength = initialWeightArray.length;
-            int xLength = initialWeightArray[0].length;
+            int yLength = weightArray[0].length;
+            int xLength = weightArray.length;
             int currentX = 0;
             int[] seam = new int[yLength];
             double lowestWeight = Double.MAX_VALUE;
-
+            System.out.println(yLength);
             for (int i = 0; i < xLength; i++) {
-                if (weightArray[i][yLength] < lowestWeight) {
-                    lowestWeight = weightArray[i][yLength];
+                if (weightArray[i][yLength-1] < lowestWeight) {
+                    lowestWeight = weightArray[i][yLength-1];
                     currentX = i;
                 }
             }
@@ -103,6 +103,7 @@ public class SeamCarver {
                 }
             }
         }
+        System.out.println("Output Array Width is: "+outputArray.length);
         return outputArray;
     }
 

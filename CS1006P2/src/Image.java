@@ -144,27 +144,30 @@ public class Image {
             if (newImage != null) {
                 newImage = new int[newImage.length - 1][newImage[0].length];
             } else {
-                newImage = new int[bufferedImage.getWidth()][bufferedImage.getHeight()];
+                newImage = new int[bufferedImage.getWidth() - 1][bufferedImage.getHeight()];
             }
-
-            for (int x = 0, x1 = 0; x < newImage.length; x++) {
-                for (int y = 0, y1 = 0; y < newImage[0].length; y++) {
+            for (int y = 0, y1 = 0; y < newImage[0].length; y++) {
+                for (int x = 0, x1 = 0; x < newImage.length; x++) {
                     if (!(iterate[y] == x)) {
+                        System.out.println("X1 is: "+x1);
                         newImage[x1][y1] = bufferedImage.getRGB(x,y);
                         //newImageBuffer.setRGB(x1,y1,bufferedImage.getRGB(x,y));
-                        y1++;
+
                         x1++;
                     }
+
                 }
+                y1++;
             }
         }
         return imageArrayToImage(newImage);
     }
 
     private BufferedImage imageArrayToImage(int[][] imageArray) {
-        BufferedImage outputImage = new BufferedImage(imageArray[0].length,imageArray.length,BufferedImage.TYPE_4BYTE_ABGR);
-        for (int y = 0; y <imageArray.length; y++) {
-            for (int x = 0; x < imageArray[0].length; x++) {
+        System.out.println(imageArray.length);
+        BufferedImage outputImage = new BufferedImage(imageArray.length,imageArray[0].length,BufferedImage.TYPE_4BYTE_ABGR);
+        for (int y = 0; y <imageArray[0].length; y++) {
+            for (int x = 0; x < imageArray.length; x++) {
                 outputImage.setRGB(x,y,imageArray[x][y]);
             }
         }

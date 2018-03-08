@@ -151,9 +151,8 @@ public class ProjectGUI extends JFrame {
                     //} catch (IOException exception) {
                     //    System.out.println("Error " + exception); //Needs to be changed
                     //}
-                    int verticalSeams = image.getWidth()-resolution;
-                    SeamCarver.setEnergyMatrices(image);
-                    BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams));
+
+
                 }
             }
         });
