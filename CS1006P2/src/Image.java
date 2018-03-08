@@ -14,7 +14,7 @@ public class Image {
     private double[][] energyMatrix;
 
     //private BufferedImage energyMatrixImage;
-    private File energyMatrixImage;
+    //private File energyMatrixImage;
 
     //Constructs an image object
     public Image(String imageFilePath) throws IOException {
@@ -97,7 +97,7 @@ public class Image {
         return energyMatrix;
     }
 
-    public void outputEnergyMatrix(double[][] imageArray) {
+    public static void outputEnergyMatrix(double[][] imageArray) {
         //System.out.println(imageArray.length);
         //System.out.println(imageArray[0].length);
         BufferedImage imgOut = new BufferedImage(imageArray.length,imageArray[0].length,BufferedImage.TYPE_BYTE_GRAY);
@@ -124,20 +124,20 @@ public class Image {
             System.out.println("Error:" + e);
         }
         //energyMatrixImage = imgOut;
-        energyMatrixImage = outFile;
+        //energyMatrixImage = outFile;
     }
 
-    public double[][] carve(int seams) {
-        double[][] newImage = null; //Placeholder variable
-        /*
+    /*public BufferedImage carveVertical(int numberSeams) {
+        *//*BufferedImage newImage =  //Placeholder variable
+        *//**//*
         This method should preferably call the PathFinding class,
         which will find the optimal seams and removed "seams" number of them.
         It will then return a 2D array of RGB values, which we can then use to print the image
-        */
-        return newImage;
-    }
+        *//**//*
+        return newImage;*//*
+    }*/
 
-    private int[][] removeSeams(Queue<int[]> q) {
+    public BufferedImage removeSeams(Queue<int[]> q) {
         int[][] newImage = null;
         for (int[] iterate: q) {
             //BufferedImage newImageBuffer = new BufferedImage(bufferedImage.getWidth() - q.size(), bufferedImage.getHeight(), TYPE_INT_ARGB);
@@ -158,8 +158,20 @@ public class Image {
                 }
             }
         }
-        return newImage;
+        return imageArrayToImage(newImage);
     }
+
+    private BufferedImage imageArrayToImage(int[][] imageArray) {
+        BufferedImage outputImage = new BufferedImage(imageArray[0].length,imageArray.length,BufferedImage.TYPE_4BYTE_ABGR);
+        for (int y = 0; y <imageArray.length; y++) {
+            for (int x = 0; x < imageArray[0].length; x++) {
+                outputImage.setRGB(x,y,imageArray[x][y]);
+            }
+        }
+        return outputImage;
+    }
+
+
 
     public BufferedImage getBufferedImage() {
         return bufferedImage;

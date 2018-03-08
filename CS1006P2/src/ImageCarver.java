@@ -21,7 +21,8 @@ public class ImageCarver {
             e.printStackTrace();
         }
         //System.out.println(currentImage);
-        SeamCarver.initializeWeights(currentImage);
+        /*SeamCarver.initializeWeights(currentImage.getEnergyMatrix());
+        SeamCarver.*/
         //currentImage.outputEnergyMatrix(currentImage.getEnergyMatrix());
 
     }
