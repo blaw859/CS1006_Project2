@@ -12,22 +12,19 @@ public class ImageCarver {
         });
 
         /*
-        String filePath = args[0];
-        filePath = "\\images\\TestImage2.jpg";
-
-        File imageFile = new File(filePath);
-        System.out.println(imageFile.canRead());
+        File imageFile = new File(args[0]);
+        /*System.out.println(imageFile.canRead());
         System.out.println(imageFile.canWrite());
         System.out.println(imageFile.canExecute());
         try {
-            currentImage = new Image(filePath);
+            currentImage = new Image(args[0]);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        System.out.println(currentImage);
-        SeamCarver.initializeWeights(currentImage);
-        currentImage.outputEnergyMatrix(currentImage.getEnergyMatrix());
-        */
+        }*/
+        //System.out.println(currentImage);
+        /*SeamCarver.initializeWeights(currentImage.getEnergyMatrix());
+        SeamCarver.*/
+        //currentImage.outputEnergyMatrix(currentImage.getEnergyMatrix());
 
     }
 

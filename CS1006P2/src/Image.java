@@ -4,6 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
 import java.util.Queue;
+<<<<<<< HEAD
+=======
+import java.util.Iterator;
+
+import static java.awt.image.BufferedImage.TYPE_4BYTE_ABGR;
+import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
+>>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
 
 public class Image {
     private int width;
@@ -12,7 +19,7 @@ public class Image {
     private double[][] energyMatrix;
 
     //private BufferedImage energyMatrixImage;
-    private File energyMatrixImage;
+    //private File energyMatrixImage;
 
     //Constructs an image object
     public Image(String imageFilePath) throws IOException {
@@ -31,6 +38,8 @@ public class Image {
     private int[] getPixelColours(int x,int y) {
         int[] rgbArray = new int[3];
         //.getRGB returns the colour in an ARGB format so we have to manipulate argbColour to get the individual RGB
+        //System.out.println("X"+x);
+        //System.out.println("Y"+y);
         int argbColour = bufferedImage.getRGB(x,y);
         //For all of the colours we use bitwise and and then bitshift the value by an amount so that the individual RGB
         //colours can be isolated in each pixel
@@ -51,8 +60,8 @@ public class Image {
         double energyX;
         double energyY;
 
-        for (int x = 0; x < bufferedImage.getWidth() - 1; x++) {
-            for (int y = 0; y < bufferedImage.getHeight() - 1; y++) {
+        for (int x = 0; x < bufferedImage.getWidth(); x++) {
+            for (int y = 0; y < bufferedImage.getHeight(); y++) {
                 //System.out.println(bufferedImage.getWidth());
                 //System.out.println(bufferedImage.getHeight());
                 //System.out.println(((-1)+100)%100);
@@ -93,7 +102,7 @@ public class Image {
         return energyMatrix;
     }
 
-    public void outputEnergyMatrix(double[][] imageArray) {
+    public static void outputEnergyMatrix(double[][] imageArray) {
         //System.out.println(imageArray.length);
         //System.out.println(imageArray[0].length);
         BufferedImage imgOut = new BufferedImage(imageArray.length,imageArray[0].length,BufferedImage.TYPE_BYTE_GRAY);
@@ -120,42 +129,83 @@ public class Image {
             System.out.println("Error:" + e);
         }
         //energyMatrixImage = imgOut;
-        energyMatrixImage = outFile;
+        //energyMatrixImage = outFile;
     }
 
-    public double[][] carve(int seams) {
-        double[][] newImage = null; //Placeholder variable
-        /*
+    /*public BufferedImage carveVertical(int numberSeams) {
+        *//*BufferedImage newImage =  //Placeholder variable
+        *//**//*
         This method should preferably call the PathFinding class,
         which will find the optimal seams and removed "seams" number of them.
         It will then return a 2D array of RGB values, which we can then use to print the image
-        */
-        return newImage;
-    }
+        *//**//*
+        return newImage;*//*
+    }*/
 
-    private int[][] removeSeams(Queue<int[]> q) {
+    /*public BufferedImage removeSeams(Queue<int[]> q) {
         int[][] newImage = null;
+        int off;
+        int[][] seam;
+        int xRGB = 0;
         for (int[] iterate: q) {
-            //BufferedImage newImageBuffer = new BufferedImage(bufferedImage.getWidth() - q.size(), bufferedImage.getHeight(), TYPE_INT_ARGB);
             if (newImage != null) {
                 newImage = new int[newImage.length - 1][newImage[0].length];
             } else {
-                newImage = new int[bufferedImage.getWidth()][bufferedImage.getHeight()];
+                newImage = new int[bufferedImage.getWidth() - 1][bufferedImage.getHeight()];
             }
-
-            for (int x = 0, x1 = 0; x < newImage.length; x++) {
-                for (int y = 0, y1 = 0; y < newImage[0].length; y++) {
+            for (int y = 0, y1 = 0; y < newImage[0].length; y++) {
+                off = 0;
+                for (int x = 0, x1 = 0; x < newImage.length; x++) {
+                    xRGB = x1 - off;
+                    if (xRGB < 0) {
+                        xRGB = 0;
+                    }
                     if (!(iterate[y] == x)) {
-                        newImage[x1][y1] = bufferedImage.getRGB(x,y);
-                        //newImageBuffer.setRGB(x1,y1,bufferedImage.getRGB(x,y));
-                        y1++;
+                        newImage[x1][y1] = bufferedImage.getRGB(xRGB,y);
                         x1++;
+                    } else {
+                        off++;
+                    }
+                }
+                y1++;
+            }
+        }
+        return imageArrayToImage(newImage);
+    }*/
+
+    public BufferedImage removeSeams(Queue<int[]> q) {
+        BufferedImage currentImage = bufferedImage;
+        for (int k = 0; k < q.size(); k++) {
+            BufferedImage nextImage = new BufferedImage(currentImage.getWidth()-1,currentImage.getHeight(),TYPE_4BYTE_ABGR);
+            int[] currentSeam = q.remove();
+            for (int y = 0; y < currentImage.getHeight(); y++) {
+                int offset = 0;
+                for (int x = 0; x < currentImage.getWidth(); x++) {
+                    if(x != currentSeam[y]) {
+                        nextImage.setRGB(x+offset,y,currentImage.getRGB(x,y));
+                    } else {
+                        offset--;
                     }
                 }
             }
+            currentImage = nextImage;
         }
-        return newImage;
+        return currentImage;
     }
+
+
+
+    private BufferedImage imageArrayToImage(int[][] imageArray) {
+        BufferedImage outputImage = new BufferedImage(imageArray.length,imageArray[0].length,BufferedImage.TYPE_4BYTE_ABGR);
+        for (int y = 0; y <imageArray[0].length; y++) {
+            for (int x = 0; x < imageArray.length; x++) {
+                outputImage.setRGB(x,y,imageArray[x][y]);
+            }
+        }
+        return outputImage;
+    }
+
+
 
     public BufferedImage getBufferedImage() {
         return bufferedImage;
