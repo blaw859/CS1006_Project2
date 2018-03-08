@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
 import java.util.Queue;
-import java.util.Iterator;
-import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 
 public class Image {
     private int width;
