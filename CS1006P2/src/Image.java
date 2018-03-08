@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.awt.Color;
 import java.util.Queue;
 import java.util.Iterator;
+
+import static java.awt.image.BufferedImage.TYPE_4BYTE_ABGR;
 import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 
 public class Image {
@@ -137,7 +139,7 @@ public class Image {
         return newImage;*//*
     }*/
 
-    public BufferedImage removeSeams(Queue<int[]> q) {
+    /*public BufferedImage removeSeams(Queue<int[]> q) {
         int[][] newImage = null;
         int off;
         int[][] seam;
@@ -166,7 +168,29 @@ public class Image {
             }
         }
         return imageArrayToImage(newImage);
+    }*/
+
+    public BufferedImage removeSeams(Queue<int[]> q) {
+        BufferedImage currentImage = bufferedImage;
+        for (int k = 0; k < q.size(); k++) {
+            BufferedImage nextImage = new BufferedImage(currentImage.getWidth()-1,currentImage.getHeight(),TYPE_4BYTE_ABGR);
+            int[] currentSeam = q.remove();
+            for (int y = 0; y < currentImage.getHeight(); y++) {
+                int offset = 0;
+                for (int x = 0; x < currentImage.getWidth(); x++) {
+                    if(x != currentSeam[y]) {
+                        nextImage.setRGB(x+offset,y,currentImage.getRGB(x,y));
+                    } else {
+                        offset--;
+                    }
+                }
+            }
+            currentImage = nextImage;
+        }
+        return currentImage;
     }
+
+
 
     private BufferedImage imageArrayToImage(int[][] imageArray) {
         BufferedImage outputImage = new BufferedImage(imageArray.length,imageArray[0].length,BufferedImage.TYPE_4BYTE_ABGR);
