@@ -16,7 +16,6 @@ public class ProjectGUI extends JFrame {
     private File file;
     private String filePath;
     private int resolution;
-    private int minResolution = 10;
 
     public ProjectGUI() {
         initUI();
@@ -25,6 +24,8 @@ public class ProjectGUI extends JFrame {
     private void initUI() {
 
         Dimension monitor = Toolkit.getDefaultToolkit().getScreenSize();
+
+        //JFrame frame3 = new JFrame("Carved Image");
 
         JFrame frame2 = new JFrame("New Image");
         frame2.setLocation((((monitor.width)/3)*2-(getSize().width)/2), 0);
@@ -147,24 +148,18 @@ public class ProjectGUI extends JFrame {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (file != null /*&& resolution > minResolution*/) { //Minimum resolution is currently at 10px
-                    //try {
-                    //   image = new Image(filePath);
-                    //} catch (IOException exception) {
-                    //    System.out.println("Error " + exception); //Needs to be changed
-                    //}
+                if (file != null ) {
                     int verticalSeams = image.getWidth() - resolution;
                     SeamCarver.setEnergyMatrices(image);
                     BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams));
 
-                    JFrame frame3 = new JFrame("Carved Image");
-
                     JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
                     newImageLabel.setSize(200, 200);
 
-                    frame3.add(newImageLabel);
-                    frame3.setVisible(true);
-                    frame3.pack();
+                    frame2.add(newImageLabel);
+                    //frame3.setVisible(true);
+                    frame2.setSize(image.getWidth() + 20, image.getHeight()*3 + 50);
+                    frame2.pack();
 
                     try {
                         File carvedImage = new File("CS1006P2/out/carvedImage.png");
@@ -172,9 +167,6 @@ public class ProjectGUI extends JFrame {
                     } catch (IOException exception) {
                         System.out.println("Error: " + exception);
                     }
-                    //} else if (minResolution > resolution) {
-                    //    text2.setText("Resolution less than 10!");
-                    //}
                 }
             }
         });
