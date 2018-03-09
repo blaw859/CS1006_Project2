@@ -155,8 +155,10 @@ public class ProjectGUI extends JFrame {
                     //}
                     int verticalSeams = image.getWidth() - resolution;
                     SeamCarver.setEnergyMatrices(image);
-                    BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams));
-
+                    double[][] verticalEnergyMatrix = image.getEnergyMatrix();
+                    //BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams,verticalEnergyMatrix));
+                    SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams,verticalEnergyMatrix);
+                    BufferedImage outputImage = image.RGBArrayToImage();
                     JFrame frame3 = new JFrame("Carved Image");
 
                     JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));

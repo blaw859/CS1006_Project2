@@ -3,11 +3,12 @@ import java.util.*;
 public class SeamCarver {
     public static double[][] verticalWeights;
     public static double[][] horizontalWeights;
-
+    public static Image verticalImage;
     public static void setEnergyMatrices(Image imageToCarve) {
         double[][] energyMatrix = imageToCarve.getEnergyMatrix();
         verticalWeights = initializeWeights(energyMatrix);
         horizontalWeights = initializeWeights(transposeArray(energyMatrix));
+        verticalImage = imageToCarve;
     }
 
     public static double[][] initializeWeights(double[][] energyMatrix) {
@@ -25,7 +26,7 @@ public class SeamCarver {
                     Arrays.sort(choices);
                     weightArray[x][y] = (choices[0] + energyMatrix[x][y]);
                 }
-                //System.out.print(weightArray[x][y]+",");
+                //System.out.print("("+x+","+y+")="+weightArray[x][y]+",");
             }
             //System.out.println("");
         }
@@ -44,26 +45,28 @@ public class SeamCarver {
         return newArray;
     }
 
-    public static Queue<int[]> findSeams(double[][] initialWeightArray, int numberOfSeams) {
+    public static Queue<int[]> findSeams(double[][] initialWeightArray, int numberOfSeams, double[][] energyMatrix) {
         double[][] weightArray = initialWeightArray;
+        double[][] currentEnergyMatrix = energyMatrix;
         Queue<int[]> seamsToRemove = new LinkedList<>();
         for(int k = 0; k < numberOfSeams; k++) {
 
             int yLength = weightArray[0].length;
             int xLength = weightArray.length;
-            System.out.println(xLength);
+            System.out.println("xLength is: "+xLength);
             int currentX = 0;
             int[] seam = new int[yLength];
+            System.out.println("Width: "+xLength);
             double lowestWeight = Double.MAX_VALUE;
 
             for (int i = 0; i < xLength; i++) {
-                //System.out.println(i);
-                //System.out.println();
-                if (weightArray[i][yLength-1] < lowestWeight) {
+                if (weightArray[i][yLength-1] <= lowestWeight) {
                     lowestWeight = weightArray[i][yLength-1];
                     currentX = i;
                 }
             }
+            //System.out.println("The starting X is: "+currentX);
+            //System.out.println("The lowest weight is "+lowestWeight);
             for (int y = yLength - 1; y >= 0; y--) {
                 lowestWeight = Double.MAX_VALUE;
                 //System.out.println("New Three");
@@ -75,11 +78,6 @@ public class SeamCarver {
                 }
                 //System.out.println("New Three Options");
                 for (int x = marker - 1; x <= marker + 1; x++) {
-                    //int funX = (x + maxX) % maxX;
-                    //System.out.println("MAX X is:"+maxX);
-                    //System.out.println(y+" The x is: " + funX   );
-                    //System.out.println(y+" The original x is: " + x   );
-                    //System.out.println("The Y is:"+ y);
                     if (weightArray[(x + xLength) % xLength][y] <= lowestWeight) {
                         currentX = (x + xLength) % xLength;
                         lowestWeight = weightArray[(x + xLength) % xLength][y];
@@ -88,19 +86,24 @@ public class SeamCarver {
                 }
                 //System.out.println(x+ " Was chosen");
             }
-            weightArray = removeSeam(seam,weightArray);
+            System.out.println("This seam has been chosen ot start at:" +seam[0]);
+            currentEnergyMatrix = verticalImage.updateCurrentRGB(seam);
+            System.out.println("After updating currentRGB the width is: "+currentEnergyMatrix.length);
+            weightArray = initializeWeights(currentEnergyMatrix);
+            System.out.println("reinitializing matrices");
             seamsToRemove.add(seam);
         }
+        verticalImage.printRGBArray();
         return seamsToRemove;
     }
 
-    private static double[][] removeSeam(int[] seam, double[][] weightArray) {
-        double[][] outputArray = new double[weightArray.length-1][weightArray[0].length];
-        for (int y = 0; y < weightArray[0].length; y++) {
+    public static double[][] removeSeam(int[] seam, double[][] inputArray) {
+        double[][] outputArray = new double[inputArray.length-1][inputArray[0].length];
+        for (int y = 0; y < inputArray[0].length; y++) {
             int offset = 0;
-            for (int x = 0; x < weightArray.length; x++) {
+            for (int x = 0; x < inputArray.length; x++) {
                 if (x != seam[y]) {
-                    outputArray[x+offset][y] = weightArray[x][y];
+                    outputArray[x+offset][y] = inputArray[x][y];
                 } else {
                     offset--;
                 }
@@ -108,6 +111,29 @@ public class SeamCarver {
         }
         return outputArray;
     }
+
+    public static int[][][] removeSeam(int[] seam, int[][][] inputArray) {
+        int[][][] outputArray = new int[inputArray.length-1][inputArray[0].length][3];
+        for (int y = 0; y < inputArray[0].length; y++) {
+            int offset = 0;
+            for (int x = 0; x < inputArray.length; x++) {
+                if (x != seam[y]) {
+                    //System.out.println(x+offset);
+                    //System.out.println("("+seam[y]+","+y+")");
+                    outputArray[x+offset][y] = inputArray[x][y];
+                } else {
+                    //System.out.println("Changing offset at x="+x+"y="+y);
+                    offset--;
+                }
+            }
+        }
+        return outputArray;
+    }
+
+    /*private static double[][] getNewWeightArray(int[] seam, double[][] weightArray, double[][] energyMatrix) {
+        double[][] newEnergyMatrix =  removeSeam(seam,energyMatrix);
+        return initializeWeights(energyMatrix);
+    }*/
 
 }
 
