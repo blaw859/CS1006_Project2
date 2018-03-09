@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5af4127-84e1-4ded-815b-2016d541a64a" name="Default" comment="Merge remote-tracking branch 'remotes/origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;CS1006P2/out/production/CS1006_Project2/Image.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ImageCarver.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ProjectGUI$1.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ProjectGUI$2.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/SeamCarver.class">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/Image.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ImageCarver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/SeamCarver.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/images/TestImage.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/images/TestImage2.JPG" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/out/outputImage.png" afterPath="$PROJECT_DIR$/CS1006P2/out/outputImage.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI$1.class" afterPath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI$2.class" afterPath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI.class" afterPath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/src/Image.java" afterPath="$PROJECT_DIR$/CS1006P2/src/Image.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/src/ImageCarver.java" afterPath="$PROJECT_DIR$/CS1006P2/src/ImageCarver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java" afterPath="$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/src/SeamCarver.java" afterPath="$PROJECT_DIR$/CS1006P2/src/SeamCarver.java" />
     </list>
@@ -22,16 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ImageCarver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ImageCarver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageCarver.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="315">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-=======
-            <state relative-caret-position="345">
+            <state relative-caret-position="248">
               <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="24" selection-end-column="21" />
->>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,12 +35,10 @@
       <file leaf-file-name="ProjectGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="155" column="20" lean-forward="false" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="45" />
+            <state relative-caret-position="252">
+              <caret line="160" column="72" lean-forward="false" selection-start-line="160" selection-start-column="72" selection-end-line="160" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#623#624#0" expanded="true" />
-                <element signature="e#647#648#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,86 +51,11 @@
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1848">
-              <caret line="88" column="20" lean-forward="false" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
-              <folding>
-                <marker date="1520443331680" expanded="true" signature="48543:48560" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="48543:48578" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="48543:48591" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="48543:48606" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="48641:50760" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="48654:50745" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="48708:49003" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="48727:48988" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="48790:48968" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="48830:48934" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="48851:48912" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49053:49380" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49072:49365" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49167:49345" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49207:49311" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49228:49289" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49431:49696" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49450:49681" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49483:49661" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49523:49627" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49544:49605" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49739:50045" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49758:50030" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49832:50010" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49872:49976" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="49893:49954" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="50096:50414" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="50115:50399" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="50201:50379" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="50241:50345" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="50262:50323" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="50466:50731" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="50485:50716" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="50518:50696" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="50558:50662" ph="..." />
-                <marker date="1520443331680" expanded="true" signature="50579:50640" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Image.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-=======
-      <file leaf-file-name="Image.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="163" column="65" lean-forward="true" selection-start-line="163" selection-start-column="65" selection-end-line="163" selection-end-column="65" />
->>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1826#1827#0" expanded="true" />
-                <element signature="e#1871#1872#0" expanded="true" />
-                <element signature="e#7744#7745#0" expanded="true" />
-                <element signature="e#7780#7781#0" expanded="true" />
-                <element signature="e#7809#7810#0" expanded="true" />
-                <element signature="e#7837#7838#0" expanded="true" />
-                <element signature="e#7867#7868#0" expanded="true" />
-                <element signature="e#7897#7898#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SeamCarver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CS1006P2/src/SeamCarver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" column="29" lean-forward="true" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+            <state relative-caret-position="213">
+              <caret line="242" column="30" lean-forward="false" selection-start-line="242" selection-start-column="30" selection-end-line="242" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -149,6 +65,37 @@
       </file>
       <file leaf-file-name="TestImage3.jpg" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/TestImage3.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Duckhead.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/Duckhead.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeamCarver.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CS1006P2/src/SeamCarver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="frlxfn0cnkmclgcw0oxn.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/frlxfn0cnkmclgcw0oxn.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestImage2.JPG" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/TestImage2.JPG">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
@@ -169,6 +116,10 @@
       <find>System</find>
       <find>Initial</find>
       <find>TestImage2</find>
+      <find>findSeams</find>
+      <find>System.out</find>
+      <find>removeSeam</find>
+      <find>remove</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -186,17 +137,17 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/CS1006P2/src/Project2.java" />
         <option value="$PROJECT_DIR$/CS1006P2/src/ImageCarver.java" />
-        <option value="$PROJECT_DIR$/CS1006P2/src/SeamCarver.java" />
         <option value="$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java" />
+        <option value="$PROJECT_DIR$/CS1006P2/src/SeamCarver.java" />
         <option value="$PROJECT_DIR$/CS1006P2/src/Image.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1" />
-    <option name="y" value="24" />
-    <option name="width" value="1438" />
-    <option name="height" value="799" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="812" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -213,8 +164,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -244,8 +193,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -422,62 +373,47 @@
       <option name="project" value="LOCAL" />
       <updated>1520508289314</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Merge remote-tracking branch 'remotes/origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;CS1006P2/out/production/CS1006_Project2/Image.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ImageCarver.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ProjectGUI$1.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ProjectGUI$2.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/SeamCarver.class">
+      <created>1520519383427</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1520519383427</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
+    <frame x="-1" y="23" width="1440" height="812" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.036486488" sideWeight="0.49722221" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32837838" sideWeight="0.49722221" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3" sideWeight="0.6597222" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3" sideWeight="0.3402778" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16944444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37786776" sideWeight="0.10208333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.8979167" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32430556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928476" sideWeight="0.49722221" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3783784" sideWeight="0.8979167" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32430556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -496,6 +432,39 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2145">
+          <caret line="155" column="20" lean-forward="false" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/TestImage.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/SeamCarver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="29" lean-forward="true" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2310">
+          <caret line="163" column="17" lean-forward="true" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageCarver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -512,8 +481,6 @@
           <caret line="112" column="30" lean-forward="false" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -540,7 +507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="96" column="20" lean-forward="false" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -549,54 +515,7 @@
         <state relative-caret-position="855">
           <caret line="57" column="18" lean-forward="false" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
           <folding>
-<<<<<<< HEAD
-            <marker date="1520443331680" expanded="true" signature="48543:48560" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48578" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48591" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48606" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48641:50760" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48654:50745" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48708:49003" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48727:48988" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48790:48968" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48830:48934" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48851:48912" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49053:49380" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49072:49365" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49167:49345" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49207:49311" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49228:49289" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49431:49696" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49450:49681" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49483:49661" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49523:49627" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49544:49605" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49739:50045" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49758:50030" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49832:50010" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49872:49976" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49893:49954" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50096:50414" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50115:50399" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50201:50379" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50241:50345" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50262:50323" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50466:50731" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50485:50716" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50518:50696" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50558:50662" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50579:50640" ph="..." />
-=======
             <element signature="imports" expanded="true" />
-            <element signature="e#1826#1827#0" expanded="true" />
-            <element signature="e#1871#1872#0" expanded="true" />
-            <element signature="e#7744#7745#0" expanded="true" />
-            <element signature="e#7780#7781#0" expanded="true" />
-            <element signature="e#7809#7810#0" expanded="true" />
-            <element signature="e#7837#7838#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#7897#7898#0" expanded="true" />
->>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
           </folding>
         </state>
       </provider>
@@ -605,9 +524,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -615,7 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
           <caret line="70" column="24" lean-forward="true" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -625,14 +541,6 @@
           <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1826#1827#0" expanded="true" />
-            <element signature="e#1871#1872#0" expanded="true" />
-            <element signature="e#7744#7745#0" expanded="true" />
-            <element signature="e#7780#7781#0" expanded="true" />
-            <element signature="e#7809#7810#0" expanded="true" />
-            <element signature="e#7837#7838#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#7897#7898#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -641,7 +549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1710">
           <caret line="114" column="20" lean-forward="false" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -659,48 +566,19 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/TestImage2.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/out/outputImage.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/TestImage3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/out/outputImage.jpg" />
     <entry file="file://$PROJECT_DIR$/CS1006P2/out/outputImage.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageMask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="7" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageMask.java" />
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1072">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1826#1827#0" expanded="true" />
-            <element signature="e#1871#1872#0" expanded="true" />
-            <element signature="e#7744#7745#0" expanded="true" />
-            <element signature="e#7780#7781#0" expanded="true" />
-            <element signature="e#7809#7810#0" expanded="true" />
-            <element signature="e#7837#7838#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#7897#7898#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -711,8 +589,6 @@
           <caret line="50" column="29" lean-forward="true" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -721,9 +597,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1893">
           <caret line="5" column="15" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -753,8 +627,6 @@
           <caret line="112" column="30" lean-forward="false" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -781,48 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="96" column="20" lean-forward="false" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
-<<<<<<< HEAD
-          <folding>
-            <marker date="1520443331680" expanded="true" signature="48543:48560" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48578" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48591" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48606" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48641:50760" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48654:50745" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48708:49003" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48727:48988" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48790:48968" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48830:48934" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48851:48912" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49053:49380" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49072:49365" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49167:49345" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49207:49311" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49228:49289" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49431:49696" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49450:49681" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49483:49661" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49523:49627" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49544:49605" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49739:50045" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49758:50030" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49832:50010" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49872:49976" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49893:49954" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50096:50414" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50115:50399" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50201:50379" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50241:50345" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50262:50323" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50466:50731" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50485:50716" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50518:50696" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50558:50662" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50579:50640" ph="..." />
-          </folding>
-=======
-          <folding />
->>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
         </state>
       </provider>
     </entry>
@@ -832,14 +662,6 @@
           <caret line="57" column="18" lean-forward="false" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1826#1827#0" expanded="true" />
-            <element signature="e#1871#1872#0" expanded="true" />
-            <element signature="e#7744#7745#0" expanded="true" />
-            <element signature="e#7780#7781#0" expanded="true" />
-            <element signature="e#7809#7810#0" expanded="true" />
-            <element signature="e#7837#7838#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#7897#7898#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -848,9 +670,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -858,48 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
           <caret line="70" column="24" lean-forward="true" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
-<<<<<<< HEAD
-          <folding>
-            <marker date="1520443331680" expanded="true" signature="48543:48560" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48578" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48591" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48606" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48641:50760" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48654:50745" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48708:49003" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48727:48988" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48790:48968" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48830:48934" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48851:48912" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49053:49380" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49072:49365" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49167:49345" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49207:49311" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49228:49289" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49431:49696" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49450:49681" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49483:49661" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49523:49627" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49544:49605" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49739:50045" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49758:50030" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49832:50010" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49872:49976" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49893:49954" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50096:50414" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50115:50399" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50201:50379" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50241:50345" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50262:50323" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50466:50731" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50485:50716" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50518:50696" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50558:50662" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50579:50640" ph="..." />
-          </folding>
-=======
-          <folding />
->>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
         </state>
       </provider>
     </entry>
@@ -909,66 +687,14 @@
           <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1826#1827#0" expanded="true" />
-            <element signature="e#1871#1872#0" expanded="true" />
-            <element signature="e#7744#7745#0" expanded="true" />
-            <element signature="e#7780#7781#0" expanded="true" />
-            <element signature="e#7809#7810#0" expanded="true" />
-            <element signature="e#7837#7838#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#7897#7898#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="1848">
-          <caret line="88" column="20" lean-forward="false" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
-          <folding>
-            <marker date="1520443331680" expanded="true" signature="48543:48560" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48578" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48591" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48543:48606" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48641:50760" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48654:50745" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48708:49003" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48727:48988" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48790:48968" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48830:48934" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="48851:48912" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49053:49380" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49072:49365" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49167:49345" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49207:49311" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49228:49289" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49431:49696" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49450:49681" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49483:49661" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49523:49627" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49544:49605" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49739:50045" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49758:50030" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49832:50010" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49872:49976" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="49893:49954" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50096:50414" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50115:50399" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50201:50379" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50241:50345" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50262:50323" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50466:50731" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50485:50716" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50518:50696" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50558:50662" ph="..." />
-            <marker date="1520443331680" expanded="true" signature="50579:50640" ph="..." />
-          </folding>
-=======
         <state relative-caret-position="1725">
           <caret line="115" column="20" lean-forward="false" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
-          <folding />
->>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
         </state>
       </provider>
     </entry>
@@ -986,23 +712,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/Project2.java" />
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/SeamCarver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="12" column="10" lean-forward="false" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-=======
-    <entry file="file://$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/images/TestImage2.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/images/TestImage.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/images/TestImage3.jpg">
+    <entry file="file://$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/images/TestImage2.JPG" />
+    <entry file="file://$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/images/TestImage.jpg" />
+    <entry file="file://$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/images/TestImage3.jpg" />
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/TestImage2.JPG">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -1012,28 +725,20 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/SeamCarver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="29" lean-forward="true" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
->>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/frlxfn0cnkmclgcw0oxn.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-=======
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/Duckhead.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageCarver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="248">
           <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="24" selection-end-column="21" />
->>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1042,41 +747,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="155" column="20" lean-forward="false" selection-start-line="155" selection-start-column="20" selection-end-line="155" selection-end-column="45" />
+        <state relative-caret-position="252">
+          <caret line="160" column="72" lean-forward="false" selection-start-line="160" selection-start-column="72" selection-end-line="160" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#647#648#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/TestImage.jpg">
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/images/TestImage3.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageCarver.java">
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="315">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-=======
-        <state relative-caret-position="242">
-          <caret line="163" column="65" lean-forward="true" selection-start-line="163" selection-start-column="65" selection-end-line="163" selection-end-column="65" />
->>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
+        <state relative-caret-position="213">
+          <caret line="242" column="30" lean-forward="false" selection-start-line="242" selection-start-column="30" selection-end-line="242" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1826#1827#0" expanded="true" />
-            <element signature="e#1871#1872#0" expanded="true" />
-            <element signature="e#7744#7745#0" expanded="true" />
-            <element signature="e#7780#7781#0" expanded="true" />
-            <element signature="e#7809#7810#0" expanded="true" />
-            <element signature="e#7837#7838#0" expanded="true" />
-            <element signature="e#7867#7868#0" expanded="true" />
-            <element signature="e#7897#7898#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/SeamCarver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

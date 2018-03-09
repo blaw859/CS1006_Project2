@@ -6,16 +6,24 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.File;
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.Dimension;
 
 public class ProjectGUI extends JFrame {
 
-    private Image image = null;
+    private static Image image = null;
+    private int resolution2;
     private File file;
     private String filePath;
+<<<<<<< HEAD
     private int resolution;
+=======
+    private static int resolution = 0;
+    public static JProgressBar progress;
+    private static JLabel text3;
+>>>>>>> f9f4aab900e94c466596928d0d78129c1092191f
 
     public ProjectGUI() {
         initUI();
@@ -60,8 +68,12 @@ public class ProjectGUI extends JFrame {
         JLabel text1 = new JLabel("No file selected");
         text1.setAlignmentX(JLabel.LEFT);
 
+        text3 = new JLabel();
+        text3.setAlignmentX(JLabel.LEFT);
+
         topPanel.add(text1);
         topPanel.add(text2);
+        topPanel.add(text3);
         topPanel.add(button);
         topPanel.setVisible(true);
         topPanel.setBounds(5,12,200,100);
@@ -80,7 +92,7 @@ public class ProjectGUI extends JFrame {
         slider.setBackground(Color.getHSBColor(150,93,90));
         slider.addChangeListener((ChangeEvent event) -> {
             resolution = slider.getValue();
-            text2.setText("Selected Resolution: " + Integer.toString(resolution));
+            text2.setText("Horizontal Resolution: " + Integer.toString(resolution));
         });
 
         //This class will allow the user to select an image easily
@@ -145,21 +157,53 @@ public class ProjectGUI extends JFrame {
         topPanel.add(slider);
         bottomPanel.setBounds(0,200,200,200);
 
+        add(topPanel);
+        add(bottomPanel);
+
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
                 if (file != null ) {
+=======
+                if (file != null) {
+>>>>>>> f9f4aab900e94c466596928d0d78129c1092191f
                     int verticalSeams = image.getWidth() - resolution;
+
+<<<<<<< HEAD
+=======
+                    progress.setValue(0);
+                    progress.setMaximum(verticalSeams - 1);
+                    progress.setVisible(true);
+                    progress.setMinimum(0);
+                    topPanel.setBounds(5,12,200,200);
                     SeamCarver.setEnergyMatrices(image);
-                    BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams));
+                    double[][] verticalEnergyMatrix = image.getEnergyMatrix();
+                    //BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams,verticalEnergyMatrix));
+                    SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams,verticalEnergyMatrix);
+                    BufferedImage outputImage = image.RGBArrayToImage();
+                    JFrame frame3 = new JFrame("Carved Image");
 
+                    JPanel newImagePanel = new JPanel();
+
+>>>>>>> f9f4aab900e94c466596928d0d78129c1092191f
                     JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
-                    newImageLabel.setSize(200, 200);
+                    newImageLabel.setSize(outputImage.getWidth(), outputImage.getHeight());
 
+<<<<<<< HEAD
                     frame2.add(newImageLabel);
                     //frame3.setVisible(true);
                     frame2.setSize(image.getWidth() + 20, image.getHeight()*3 + 50);
                     frame2.pack();
+=======
+                    newImagePanel.add(newImageLabel);
+
+                    frame3.setSize(outputImage.getWidth(), outputImage.getHeight());
+                    frame3.add(newImageLabel);
+                    frame3.setVisible(true);
+>>>>>>> f9f4aab900e94c466596928d0d78129c1092191f
 
                     try {
                         File carvedImage = new File("CS1006P2/out/carvedImage.png");
@@ -171,11 +215,66 @@ public class ProjectGUI extends JFrame {
             }
         });
 
-        add(topPanel);
-        add(bottomPanel);
+        progress = new JProgressBar();
+        progress.setStringPainted(true);
+        progress.setValue(0);
+        progress.setVisible(false);
+        progress.setMinimum(0);
+        progress.setName("Carving Progress");
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        topPanel.add(progress);
+        //topPanel.setBounds(5,12,200,200);
 
+        JSlider slider2 = new JSlider(0,0,0); //The slider is 0 size before an image is selected
+        slider2.setVisible(false);
+        slider2.setOrientation(JSlider.VERTICAL);
+        slider2.setMinorTickSpacing(1);
+        slider2.setMajorTickSpacing(10);
+        slider2.setPaintTicks(true);
+        slider2.setBackground(Color.getHSBColor(150,93,90));
+        slider2.addChangeListener((ChangeEvent event) -> {
+            resolution2 = slider.getValue();
+            text3.setText("Vertical Resolution: " + Integer.toString(resolution));
+        });
+
+
+        //for (int i = 0; i < 5; i++) {
+        //    incrementProgress();
+            //progress.setValue(progress.getValue() + 1);
+        //}
+
+
+        //JPanel rightPanel = new JPanel();
+
+        //rightPanel.setAlignmentX(JPanel.RIGHT_ALIGNMENT);
+        //rightPanel.add(text3);
+        //rightPanel.add(progress);
+        //add(rightPanel);
     }
+
+    public static void incrementProgress() {
+        int val = progress.getValue();
+        val += 1;
+        if (val >= image.getWidth() - resolution) {
+            text3.setText("Seam Carving complete!");
+            return;
+        }
+        progress.setValue(val);
+        progress.repaint();
+    }
+
+    public class UpdateProgress implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int val = progress.getValue();
+            if (val >= resolution) {
+                text3.setText("Seam Carving complete!");
+                return;
+            }
+            progress.setValue(val++);
+            progress.repaint();
+        }
+    }
+
 
 }
