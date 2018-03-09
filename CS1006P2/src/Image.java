@@ -4,13 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
 import java.util.Queue;
-<<<<<<< HEAD
-=======
 import java.util.Iterator;
-
-import static java.awt.image.BufferedImage.TYPE_4BYTE_ABGR;
 import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
->>>>>>> 3cd83b134057323751c61819c8c764055082b9c8
 
 public class Image {
     private int width;
@@ -143,25 +138,25 @@ public class Image {
     }*/
 
     /*public BufferedImage removeSeams(Queue<int[]> q) {
-        int[][] newImage = null;
+        //int[][] newImage = new int[bufferedImage.getWidth()][bufferedImage.getHeight()];
         int off;
-        int[][] seam;
+        //boolean[][] seam = new boolean[bufferedImage.getWidth()][bufferedImage.getHeight()];
+        BufferedImage currentBufferedImage = bufferedImage;
         int xRGB = 0;
-        for (int[] iterate: q) {
-            if (newImage != null) {
-                newImage = new int[newImage.length - 1][newImage[0].length];
-            } else {
-                newImage = new int[bufferedImage.getWidth() - 1][bufferedImage.getHeight()];
-            }
-            for (int y = 0, y1 = 0; y < newImage[0].length; y++) {
+        for (int i = 0; i < q.size(); i++) {
+            //newImage = new int[newImage.length - 1][newImage[0].length];
+            //newBufferedImage = new BufferedImage(newImage.length, newImage[0].length, BufferedImage.TYPE_4BYTE_ABGR);
+            int[] seam = q.remove();
+            BufferedImage newBufferedImage = new BufferedImage(bufferedImage.getWidth() - 1, bufferedImage.getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
+            for (int y = 0, y1 = 0; y < newBufferedImage.getHeight(); y++) {
                 off = 0;
-                for (int x = 0, x1 = 0; x < newImage.length; x++) {
+                for (int x = 0, x1 = 0; x < newBufferedImage.getWidth(); x++) {
                     xRGB = x1 - off;
                     if (xRGB < 0) {
                         xRGB = 0;
                     }
-                    if (!(iterate[y] == x)) {
-                        newImage[x1][y1] = bufferedImage.getRGB(xRGB,y);
+                    if (!(seam[y] == x)) {
+                        newBufferedImage.setRGB(x1,y1,bufferedImage.getRGB(xRGB, y1));
                         x1++;
                     } else {
                         off++;
@@ -169,15 +164,28 @@ public class Image {
                 }
                 y1++;
             }
+            currentBufferedImage = newBufferedImage;
         }
-        return imageArrayToImage(newImage);
+        try {
+            File carvedImage = new File("CS1006P2/out/newBufferedImage.png");
+            ImageIO.write(currentBufferedImage, "png", carvedImage);
+        } catch (IOException exception) {
+            System.out.println("Error: " + exception);
+        }
+        return currentBufferedImage;
     }*/
-
     public BufferedImage removeSeams(Queue<int[]> q) {
         BufferedImage currentImage = bufferedImage;
-        for (int k = 0; k < q.size(); k++) {
-            BufferedImage nextImage = new BufferedImage(currentImage.getWidth()-1,currentImage.getHeight(),TYPE_4BYTE_ABGR);
+        int queueSize = q.size();
+
+
+
+        for (int k = 0; k < queueSize; k++) {
+            BufferedImage nextImage = new BufferedImage(currentImage.getWidth()-1,currentImage.getHeight(),BufferedImage.TYPE_4BYTE_ABGR);
             int[] currentSeam = q.remove();
+            //System.out.println(q.size());
+
+
             for (int y = 0; y < currentImage.getHeight(); y++) {
                 int offset = 0;
                 for (int x = 0; x < currentImage.getWidth(); x++) {
@@ -193,9 +201,7 @@ public class Image {
         return currentImage;
     }
 
-
-
-    private BufferedImage imageArrayToImage(int[][] imageArray) {
+    /*private BufferedImage imageArrayToImage(int[][] imageArray) {
         BufferedImage outputImage = new BufferedImage(imageArray.length,imageArray[0].length,BufferedImage.TYPE_4BYTE_ABGR);
         for (int y = 0; y <imageArray[0].length; y++) {
             for (int x = 0; x < imageArray.length; x++) {
@@ -203,7 +209,7 @@ public class Image {
             }
         }
         return outputImage;
-    }
+    }*/
 
 
 

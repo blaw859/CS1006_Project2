@@ -25,9 +25,7 @@ public class SeamCarver {
                     Arrays.sort(choices);
                     weightArray[x][y] = (choices[0] + energyMatrix[x][y]);
                 }
-                //System.out.print(weightArray[x][y]+",");
             }
-            //System.out.println("");
         }
         return weightArray;
     }
@@ -51,14 +49,11 @@ public class SeamCarver {
 
             int yLength = weightArray[0].length;
             int xLength = weightArray.length;
-            System.out.println(xLength);
             int currentX = 0;
             int[] seam = new int[yLength];
             double lowestWeight = Double.MAX_VALUE;
 
             for (int i = 0; i < xLength; i++) {
-                //System.out.println(i);
-                //System.out.println();
                 if (weightArray[i][yLength-1] < lowestWeight) {
                     lowestWeight = weightArray[i][yLength-1];
                     currentX = i;
@@ -66,7 +61,6 @@ public class SeamCarver {
             }
             for (int y = yLength - 1; y >= 0; y--) {
                 lowestWeight = Double.MAX_VALUE;
-                //System.out.println("New Three");
                 int marker = currentX;
                 if (marker == 0) {
                     marker = 1;
