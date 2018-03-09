@@ -53,10 +53,10 @@ public class SeamCarver {
 
             int yLength = weightArray[0].length;
             int xLength = weightArray.length;
-            System.out.println("xLength is: "+xLength);
+            //System.out.println("xLength is: "+xLength);
             int currentX = 0;
             int[] seam = new int[yLength];
-            System.out.println("Width: "+xLength);
+            //System.out.println("Width: "+xLength);
             double lowestWeight = Double.MAX_VALUE;
 
             for (int i = 0; i < xLength; i++) {
@@ -86,12 +86,14 @@ public class SeamCarver {
                 }
                 //System.out.println(x+ " Was chosen");
             }
-            System.out.println("This seam has been chosen ot start at:" +seam[0]);
+            //System.out.println("This seam has been chosen ot start at:" +seam[0]);
             currentEnergyMatrix = verticalImage.updateCurrentRGB(seam);
-            System.out.println("After updating currentRGB the width is: "+currentEnergyMatrix.length);
+            //System.out.println("After updating currentRGB the width is: "+currentEnergyMatrix.length);
             weightArray = initializeWeights(currentEnergyMatrix);
-            System.out.println("reinitializing matrices");
+            //System.out.println("reinitializing matrices");
             seamsToRemove.add(seam);
+            ProjectGUI.incrementProgress();
+            ProjectGUI.progress.repaint();
         }
         verticalImage.printRGBArray();
         return seamsToRemove;

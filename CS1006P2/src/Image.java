@@ -59,11 +59,11 @@ public class Image {
     }
 
     public double[][] updateCurrentRGB(int[] seam) {
-        System.out.println("UpdatingRGB the current array lengths is: "+currentRGBArray.length);
+        //System.out.println("UpdatingRGB the current array lengths is: "+currentRGBArray.length);
         int[][][] carvedRGB = SeamCarver.removeSeam(seam,currentRGBArray);
         energyMatrix = SeamCarver.removeSeam(seam,energyMatrix);
-        System.out.println("CarvedRGB width is:"+carvedRGB.length);
-        System.out.println();
+        //System.out.println("CarvedRGB width is:"+carvedRGB.length);
+        //System.out.println();
         for (int y = 0; y < carvedRGB[0].length; y++) {
             for (int x = 0; x < carvedRGB.length; x++) {
                 if (seam[y]==x) {
@@ -164,80 +164,8 @@ public class Image {
         } catch (IOException e) {
             System.out.println("Error:" + e);
         }
-        //energyMatrixImage = imgOut;
-        //energyMatrixImage = outFile;
     }
 
-    /*public BufferedImage carveVertical(int numberSeams) {
-        *//*BufferedImage newImage =  //Placeholder variable
-        *//**//*
-        This method should preferably call the PathFinding class,
-        which will find the optimal seams and removed "seams" number of them.
-        It will then return a 2D array of RGB values, which we can then use to print the image
-        *//**//*
-        return newImage;*//*
-    }*/
-
-    /*public BufferedImage removeSeams(Queue<int[]> q) {
-        int[][] newImage = null;
-        int off;
-        int[][] seam;
-        int xRGB = 0;
-        for (int[] iterate: q) {
-            if (newImage != null) {
-                newImage = new int[newImage.length - 1][newImage[0].length];
-            } else {
-                newImage = new int[bufferedImage.getWidth() - 1][bufferedImage.getHeight()];
-            }
-            for (int y = 0, y1 = 0; y < newImage[0].length; y++) {
-                off = 0;
-                for (int x = 0, x1 = 0; x < newImage.length; x++) {
-                    xRGB = x1 - off;
-                    if (xRGB < 0) {
-                        xRGB = 0;
-                    }
-                    if (!(iterate[y] == x)) {
-                        newImage[x1][y1] = bufferedImage.getRGB(xRGB,y);
-                        x1++;
-                    } else {
-                        off++;
-                    }
-                }
-                y1++;
-            }
-        }
-        return imageArrayToImage(newImage);
-    }*/
-
-    /*public int[][][] removeSeams(Queue<int[]> q) {
-        System.out.println("Number of seams: "+q.size());
-        //BufferedImage currentImage = bufferedImage;
-        //int[][][] currentImageRGB = currentRGBArray;
-        int initialSize = q.size();
-        for (int k = 0; k < initialSize; k++) {
-            BufferedImage nextImage = new BufferedImage(currentRGBArray.length-1,currentRGBArray[0].length,TYPE_4BYTE_ABGR);
-            int[] currentSeam = q.remove();
-            System.out.println(q.size());
-            //System.out.println("__________NEW SEAM__________");
-            for (int y = 0; y < currentRGBArray[0].length; y++) {
-                int offset = 0;
-                //System.out.println("("+currentSeam[y]+","+y+")");
-                for (int x = 0; x < currentRGBArray.length; x++) {
-
-                    if(x != currentSeam[y]) {
-                        nextImage.setRGB(x+offset,y,currentImage.getRGB(x,y));
-                    } else {
-                        offset--;
-                    }
-                }
-            }
-            currentImage = nextImage;
-        }
-        return currentImage;
-    }*/
-    //rgbArray[0] = (argbColour & 0x00ff0000) >>16; //Red
-    //rgbArray[1] = (argbColour & 0x0000ff00) >>8; //Green
-    //rgbArray[2] = (argbColour & 0x000000ff); //Blue
 
     private int RGBToARBG (int[] inputRGB) {
         int ARGBOut = 0xff000000 | (inputRGB[0] << 16) | (inputRGB[1] << 8) | (inputRGB[2]);
@@ -281,11 +209,9 @@ public class Image {
     public void printRGBArray () {
         for (int y = 0; y < currentRGBArray[0].length; y++) {
             for (int x = 0; x < currentRGBArray.length; x++) {
-                //System.out.print("("+currentRGBArray[x][y][0]+","+currentRGBArray[x][y][1]+","+currentRGBArray[x][y][2]+")");
-                System.out.println(String.format("0x%08X",RGBToARBG(currentRGBArray[x][y])));
-
+                //System.out.println(String.format("0x%08X",RGBToARBG(currentRGBArray[x][y])));
             }
-            System.out.println("");
+            //System.out.println("");
         }
     }
 
