@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.File;
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.Dimension;
@@ -17,6 +18,8 @@ public class ProjectGUI extends JFrame {
     private String filePath;
     private int resolution;
     private int minResolution = 10;
+    public JProgressBar progress;
+    private JLabel text3;
 
     public ProjectGUI() {
         initUI();
@@ -58,6 +61,8 @@ public class ProjectGUI extends JFrame {
 
         JLabel text1 = new JLabel("No file selected");
         text1.setAlignmentX(JLabel.LEFT);
+
+        text3 = new JLabel();
 
         topPanel.add(text1);
         topPanel.add(text2);
@@ -144,15 +149,15 @@ public class ProjectGUI extends JFrame {
         topPanel.add(slider);
         bottomPanel.setBounds(0,200,200,200);
 
+        add(topPanel);
+        add(bottomPanel);
+
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (file != null /*&& resolution > minResolution*/) { //Minimum resolution is currently at 10px
-                    //try {
-                    //   image = new Image(filePath);
-                    //} catch (IOException exception) {
-                    //    System.out.println("Error " + exception); //Needs to be changed
-                    //}
+                if (file != null) {
                     int verticalSeams = image.getWidth() - resolution;
                     SeamCarver.setEnergyMatrices(image);
                     double[][] verticalEnergyMatrix = image.getEnergyMatrix();
@@ -161,12 +166,21 @@ public class ProjectGUI extends JFrame {
                     BufferedImage outputImage = image.RGBArrayToImage();
                     JFrame frame3 = new JFrame("Carved Image");
 
-                    JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
-                    newImageLabel.setSize(200, 200);
+                    JPanel newImagePanel = new JPanel();
 
+                    JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
+                    newImageLabel.setSize(outputImage.getWidth(), outputImage.getHeight());
+
+                    newImagePanel.add(newImageLabel);
+
+                    frame3.setSize(outputImage.getWidth(), outputImage.getHeight());
                     frame3.add(newImageLabel);
+                    //energyPanel.removeAll();
+                    //energyPanel.add(newImageLabel);
+                    //frame2.add(newImagePanel);
+                    //frame2.setSize(image.getWidth()*2 + 20, image.getHeight()*3 + 50);
                     frame3.setVisible(true);
-                    frame3.pack();
+                    //frame3.pack();
 
                     try {
                         File carvedImage = new File("CS1006P2/out/carvedImage.png");
@@ -174,18 +188,37 @@ public class ProjectGUI extends JFrame {
                     } catch (IOException exception) {
                         System.out.println("Error: " + exception);
                     }
-                    //} else if (minResolution > resolution) {
-                    //    text2.setText("Resolution less than 10!");
-                    //}
                 }
             }
         });
 
-        add(topPanel);
-        add(bottomPanel);
+        progress = new JProgressBar();
+        progress.setStringPainted(true);
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        JPanel rightPanel = new JPanel();
+
+        rightPanel.add(text3);
+        rightPanel.add(progress);
+        add(rightPanel);
+
 
     }
+
+    public class UpdateProgess implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            int val = progress.getValue();
+
+            if (val >= resolution) {
+                text3.setText("Seam Carving complete!");
+                return;
+            }
+            progress.setValue(val++);
+
+        }
+    }
+
 
 }
