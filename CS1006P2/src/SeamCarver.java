@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.*;
 
 public class SeamCarver {
@@ -92,8 +93,21 @@ public class SeamCarver {
             weightArray = initializeWeights(currentEnergyMatrix);
             //System.out.println("reinitializing matrices");
             seamsToRemove.add(seam);
-            ProjectGUI.incrementProgress();
-            ProjectGUI.progress.repaint();
+
+            try {
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        ProjectGUI.incrementProgress();
+                        ProjectGUI.progress.repaint();
+                    }
+                });
+                java.lang.Thread.sleep(1);
+            } catch (InterruptedException e) {
+                System.out.println("Error: " + e);
+            }
+
+            //ProjectGUI.incrementProgress();
+            //ProjectGUI.progress.repaint();
         }
         verticalImage.printRGBArray();
         return seamsToRemove;

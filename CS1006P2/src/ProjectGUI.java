@@ -17,13 +17,9 @@ public class ProjectGUI extends JFrame {
     private int resolution2;
     private File file;
     private String filePath;
-<<<<<<< HEAD
-    private int resolution;
-=======
     private static int resolution = 0;
     public static JProgressBar progress;
     private static JLabel text3;
->>>>>>> f9f4aab900e94c466596928d0d78129c1092191f
 
     public ProjectGUI() {
         initUI();
@@ -48,6 +44,8 @@ public class ProjectGUI extends JFrame {
 
         setLocation((monitor.width/2)-(getSize().width/2) - 450, (monitor.height/2)-(getSize().height/2) - 200);
         setTitle("Image Carver");
+        setOpacity(1f);
+        setBackground(Color.getHSBColor(200,94,105));
         setResizable(false);
         setVisible(true);
         setSize(970,400);
@@ -58,6 +56,13 @@ public class ProjectGUI extends JFrame {
 
         JPanel bottomPanel = new JPanel();
         bottomPanel.setBackground(Color.getHSBColor(200,94,105));
+
+        /*
+        JPanel rightPanel = new JPanel();
+        rightPanel.setBounds(200,5,120,200);
+        rightPanel.setVisible(false);
+        rightPanel.setAlignmentX(JPanel.RIGHT_ALIGNMENT);
+        */
 
         JButton button = new JButton("Confirm selection");
         button.setVisible(false);
@@ -76,7 +81,7 @@ public class ProjectGUI extends JFrame {
         topPanel.add(text3);
         topPanel.add(button);
         topPanel.setVisible(true);
-        topPanel.setBounds(5,12,200,100);
+        topPanel.setBounds(5,12,200,52);
         topPanel.setAlignmentX(JLabel.LEFT_ALIGNMENT);
 
         //bottomPanel.setBounds(0,300,200,200);
@@ -93,6 +98,18 @@ public class ProjectGUI extends JFrame {
         slider.addChangeListener((ChangeEvent event) -> {
             resolution = slider.getValue();
             text2.setText("Horizontal Resolution: " + Integer.toString(resolution));
+        });
+
+        JSlider slider2 = new JSlider(0,0,0); //The slider is 0 size before an image is selected
+        slider2.setVisible(false);
+        slider2.setOrientation(JSlider.VERTICAL);
+        slider2.setMinorTickSpacing(1);
+        slider2.setMajorTickSpacing(10);
+        slider2.setPaintTicks(true);
+        slider2.setBackground(Color.getHSBColor(150,93,90));
+        slider2.addChangeListener((ChangeEvent event) -> {
+            resolution2 = slider2.getValue();
+            text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
         });
 
         //This class will allow the user to select an image easily
@@ -125,9 +142,24 @@ public class ProjectGUI extends JFrame {
                         } catch (IOException exception) {
                             System.out.println("Error " + exception);
                         }
+                        topPanel.setBounds(5,12,200,120);
                         slider.setMaximum(image.getWidth());
+                        slider.setValue(image.getWidth());
                         slider.setVisible(true);
+                        slider2.setVisible(true);
+                        slider2.setMaximum(image.getHeight());
+                        slider2.setValue(image.getHeight());
                         button.setVisible(true);
+                        //rightPanel.add(slider2);
+                        //rightPanel.setVisible(true);
+                        bottomPanel.remove(fileChooser);
+                        fileChooser.setVisible(false);
+                        bottomPanel.add(slider2);
+                        bottomPanel.setAlignmentX(JPanel.RIGHT_ALIGNMENT);
+                        //bottomPanel.setBounds(120,12,50,200);
+                        bottomPanel.revalidate();
+                        setSize(480,250);
+                        repaint();
 
                         JLabel imageLabel = new JLabel(new ImageIcon(image.getBufferedImage()));
 
@@ -158,6 +190,7 @@ public class ProjectGUI extends JFrame {
         bottomPanel.setBounds(0,200,200,200);
 
         add(topPanel);
+        //add(rightPanel);
         add(bottomPanel);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -165,15 +198,8 @@ public class ProjectGUI extends JFrame {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
                 if (file != null ) {
-=======
-                if (file != null) {
->>>>>>> f9f4aab900e94c466596928d0d78129c1092191f
                     int verticalSeams = image.getWidth() - resolution;
-
-<<<<<<< HEAD
-=======
                     progress.setValue(0);
                     progress.setMaximum(verticalSeams - 1);
                     progress.setVisible(true);
@@ -187,23 +213,17 @@ public class ProjectGUI extends JFrame {
                     JFrame frame3 = new JFrame("Carved Image");
 
                     JPanel newImagePanel = new JPanel();
-
->>>>>>> f9f4aab900e94c466596928d0d78129c1092191f
                     JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
                     newImageLabel.setSize(outputImage.getWidth(), outputImage.getHeight());
-
-<<<<<<< HEAD
-                    frame2.add(newImageLabel);
+                    frame3.add(newImageLabel);
                     //frame3.setVisible(true);
-                    frame2.setSize(image.getWidth() + 20, image.getHeight()*3 + 50);
-                    frame2.pack();
-=======
+                    frame3.setSize(image.getWidth() + 20, image.getHeight()*3 + 50);
+                    frame3.pack();
                     newImagePanel.add(newImageLabel);
 
                     frame3.setSize(outputImage.getWidth(), outputImage.getHeight());
                     frame3.add(newImageLabel);
                     frame3.setVisible(true);
->>>>>>> f9f4aab900e94c466596928d0d78129c1092191f
 
                     try {
                         File carvedImage = new File("CS1006P2/out/carvedImage.png");
@@ -224,19 +244,6 @@ public class ProjectGUI extends JFrame {
 
         topPanel.add(progress);
         //topPanel.setBounds(5,12,200,200);
-
-        JSlider slider2 = new JSlider(0,0,0); //The slider is 0 size before an image is selected
-        slider2.setVisible(false);
-        slider2.setOrientation(JSlider.VERTICAL);
-        slider2.setMinorTickSpacing(1);
-        slider2.setMajorTickSpacing(10);
-        slider2.setPaintTicks(true);
-        slider2.setBackground(Color.getHSBColor(150,93,90));
-        slider2.addChangeListener((ChangeEvent event) -> {
-            resolution2 = slider.getValue();
-            text3.setText("Vertical Resolution: " + Integer.toString(resolution));
-        });
-
 
         //for (int i = 0; i < 5; i++) {
         //    incrementProgress();

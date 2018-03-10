@@ -4,14 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
 import java.util.Queue;
-<<<<<<< HEAD
 import static java.awt.image.BufferedImage.TYPE_4BYTE_ABGR;
-=======
 import java.util.Iterator;
 
 import static java.awt.image.BufferedImage.TYPE_4BYTE_ABGR;
 import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
->>>>>>> f9f4aab900e94c466596928d0d78129c1092191f
 
 public class Image {
     private int width;
