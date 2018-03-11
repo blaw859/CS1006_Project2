@@ -1,4 +1,4 @@
-
+/*
 import javax.swing.*;
 import java.util.*;
 
@@ -115,6 +115,7 @@ public class SeamCarver {
 
             //ProjectGUI.incrementProgress();
             //ProjectGUI.progress.repaint();
+/*
         }
         verticalImage.printRGBArray();
         return seamsToRemove;
@@ -146,7 +147,7 @@ public class SeamCarver {
         } catch (InterruptedException e) {
             System.out.println("Error: " + e);
         }
-        */
+
         return outputArray;
     }
 
@@ -171,9 +172,9 @@ public class SeamCarver {
     /*private static double[][] getNewWeightArray(int[] seam, double[][] weightArray, double[][] energyMatrix) {
         double[][] newEnergyMatrix =  removeSeam(seam,energyMatrix);
         return initializeWeights(energyMatrix);
-    }*/
+    }
 
-}
+//}
 
 /*public class SeamCarver {
     public static double[][] verticalWeights;
