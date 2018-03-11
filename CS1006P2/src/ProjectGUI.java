@@ -200,16 +200,17 @@ public class ProjectGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (file != null ) {
                     int verticalSeams = image.getWidth() - resolution;
+                    int horizontalSeams = image.getHeight() - resolution2;
                     progress.setValue(0);
                     progress.setMaximum(verticalSeams - 1);
                     progress.setVisible(true);
                     progress.setMinimum(0);
                     topPanel.setBounds(5,12,200,200);
-                    SeamCarver.setEnergyMatrices(image);
+                    //SeamCarver.setEnergyMatrices(image);
                     double[][] verticalEnergyMatrix = image.getEnergyMatrix();
                     //BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams,verticalEnergyMatrix));
-                    SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams,verticalEnergyMatrix);
-                    BufferedImage outputImage = image.RGBArrayToImage();
+                    //SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams,verticalEnergyMatrix);
+                    BufferedImage outputImage = image.carveImage(horizontalSeams,verticalSeams);
                     JFrame frame3 = new JFrame("Carved Image");
 
                     JPanel newImagePanel = new JPanel();
