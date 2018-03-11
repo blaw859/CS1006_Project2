@@ -110,22 +110,6 @@ public class ProjectGUI extends JFrame {
             text2.setText("Horizontal Resolution: " + Integer.toString(resolution));
         });
 
-        JButton mode = new JButton("Addition mode");
-        mode.setVisible(false);
-        mode.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (add) {
-                    add = false;
-                    mode.setText("Removal mode");
-                } else {
-                    add = true;
-                    mode.setText("Addition mode");
-                }
-
-            }
-        });
-
         JTextArea textV = new JTextArea();
         textV.setVisible(false);
         textV.getDocument().addDocumentListener(new DocumentListener() {
@@ -171,6 +155,30 @@ public class ProjectGUI extends JFrame {
         slider2.addChangeListener((ChangeEvent event) -> {
             resolution2 = slider2.getValue();
             text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
+        });
+
+        JButton mode = new JButton("Addition mode");
+        mode.setVisible(false);
+        mode.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (add) {
+                    add = false;
+                    mode.setText("Removal mode");
+                    textV.setVisible(true);
+                    textH.setVisible(true);
+                    slider.setVisible(false);
+                    slider2.setVisible(false);
+                } else {
+                    add = true;
+                    mode.setText("Addition mode");
+                    textV.setVisible(false);
+                    textH.setVisible(false);
+                    slider.setVisible(true);
+                    slider2.setVisible(true);
+                }
+
+            }
         });
 
         //This class will allow the user to select an image easily
