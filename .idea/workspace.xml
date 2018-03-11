@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a26dc4cf-6522-448f-941b-477cb1a49bcb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/CS1006P2/src/Catch.java" afterPath="$PROJECT_DIR$/CS1006P2/src/Catch.java" />
       <change beforePath="$PROJECT_DIR$/CS1006P2/src/Image.java" afterPath="$PROJECT_DIR$/CS1006P2/src/Image.java" />
+      <change beforePath="$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java" afterPath="$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java" />
+      <change beforePath="$PROJECT_DIR$/CS1006P2/src/Throw.java" afterPath="$PROJECT_DIR$/CS1006P2/src/Throw.java" />
     </list>
     <ignored path="$PROJECT_DIR$/CS1006P2/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,25 +21,43 @@
       <file leaf-file-name="Image.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-833">
-              <caret line="91" column="48" lean-forward="true" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
+            <state relative-caret-position="-740">
+              <caret line="188" column="72" lean-forward="false" selection-start-line="188" selection-start-column="72" selection-end-line="188" selection-end-column="72" />
               <folding>
-                <element signature="method#Image#0;class#Image#0" expanded="false" />
-                <element signature="method#carveImage#0;class#Image#0" expanded="false" />
                 <element signature="method#transposeArray#0;class#Image#0" expanded="false" />
                 <element signature="method#transposeArray#1;class#Image#0" expanded="false" />
                 <element signature="method#removeSeams#0;class#Image#0" expanded="false" />
                 <element signature="method#removeSeam#0;class#Image#0" expanded="false" />
                 <element signature="method#removeSeam#1;class#Image#0" expanded="false" />
-                <element signature="e#16145#16146#0" expanded="true" />
-                <element signature="e#16180#16181#0" expanded="true" />
-                <element signature="e#18901#18902#0" expanded="true" />
-                <element signature="e#18937#18938#0" expanded="true" />
-                <element signature="e#18966#18967#0" expanded="true" />
-                <element signature="e#18994#18995#0" expanded="true" />
-                <element signature="e#19024#19025#0" expanded="true" />
-                <element signature="e#19054#19055#0" expanded="true" />
+                <element signature="e#19193#19194#0" expanded="true" />
+                <element signature="e#19228#19229#0" expanded="true" />
+                <element signature="e#21949#21950#0" expanded="true" />
+                <element signature="e#21985#21986#0" expanded="true" />
+                <element signature="e#22014#22015#0" expanded="true" />
+                <element signature="e#22042#22043#0" expanded="true" />
+                <element signature="e#22072#22073#0" expanded="true" />
+                <element signature="e#22102#22103#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Catch.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CS1006P2/src/Catch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Throw.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CS1006P2/src/Throw.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,9 +75,25 @@
       <file leaf-file-name="ProjectGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2850">
-              <caret line="92" column="14" lean-forward="false" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
-              <folding />
+            <state relative-caret-position="278">
+              <caret line="270" column="75" lean-forward="false" selection-start-line="270" selection-start-column="75" selection-end-line="270" selection-end-column="75" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#888#889#0" expanded="true" />
+                <element signature="e#912#913#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SeamCarver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CS1006P2/src/SeamCarver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#12718#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,6 +142,8 @@
         <option value="$PROJECT_DIR$/CS1006P2/src/Project2.java" />
         <option value="$PROJECT_DIR$/CS1006P2/src/SeamCarver.java" />
         <option value="$PROJECT_DIR$/CS1006P2/src/ImageCarver.java" />
+        <option value="$PROJECT_DIR$/CS1006P2/src/Throw.java" />
+        <option value="$PROJECT_DIR$/CS1006P2/src/Catch.java" />
         <option value="$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java" />
         <option value="$PROJECT_DIR$/CS1006P2/src/Image.java" />
       </list>
@@ -306,7 +345,7 @@
       <workItem from="1520682450189" duration="15139000" />
       <workItem from="1520790843756" duration="303000" />
       <workItem from="1520791162839" duration="11000" />
-      <workItem from="1520791192156" duration="6841000" />
+      <workItem from="1520791192156" duration="13584000" />
     </task>
     <task id="LOCAL-00001" summary="Added method to output an image of the energy matrix for debugging">
       <created>1520093573324</created>
@@ -357,11 +396,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520519383427</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added seam addition">
+      <created>1520798060577</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1520798060577</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22328000" />
+    <option name="totallyTimeSpent" value="29071000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -410,11 +456,20 @@
     <MESSAGE value="Added seam carver class" />
     <MESSAGE value="Fixed null pointer exception" />
     <MESSAGE value="Merge remote-tracking branch 'remotes/origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;CS1006P2/out/production/CS1006_Project2/Image.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ImageCarver.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ProjectGUI$1.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ProjectGUI$2.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/SeamCarver.class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'remotes/origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;CS1006P2/out/production/CS1006_Project2/Image.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ImageCarver.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ProjectGUI$1.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/ProjectGUI$2.class&#10;#&#9;CS1006P2/out/production/CS1006_Project2/SeamCarver.class" />
+    <MESSAGE value="Added seam addition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added seam addition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CS1006P2/src/Image.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -494,6 +549,44 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/Catch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/SeamCarver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12718#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/Throw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="270" column="75" lean-forward="false" selection-start-line="270" selection-start-column="75" selection-end-line="270" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#888#889#0" expanded="true" />
+            <element signature="e#912#913#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageCarver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -502,34 +595,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2850">
-          <caret line="92" column="14" lean-forward="false" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-833">
-          <caret line="91" column="48" lean-forward="true" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
+        <state relative-caret-position="-740">
+          <caret line="188" column="72" lean-forward="false" selection-start-line="188" selection-start-column="72" selection-end-line="188" selection-end-column="72" />
           <folding>
-            <element signature="method#Image#0;class#Image#0" expanded="false" />
-            <element signature="method#carveImage#0;class#Image#0" expanded="false" />
             <element signature="method#transposeArray#0;class#Image#0" expanded="false" />
             <element signature="method#transposeArray#1;class#Image#0" expanded="false" />
             <element signature="method#removeSeams#0;class#Image#0" expanded="false" />
             <element signature="method#removeSeam#0;class#Image#0" expanded="false" />
             <element signature="method#removeSeam#1;class#Image#0" expanded="false" />
-            <element signature="e#16145#16146#0" expanded="true" />
-            <element signature="e#16180#16181#0" expanded="true" />
-            <element signature="e#18901#18902#0" expanded="true" />
-            <element signature="e#18937#18938#0" expanded="true" />
-            <element signature="e#18966#18967#0" expanded="true" />
-            <element signature="e#18994#18995#0" expanded="true" />
-            <element signature="e#19024#19025#0" expanded="true" />
-            <element signature="e#19054#19055#0" expanded="true" />
+            <element signature="e#19193#19194#0" expanded="true" />
+            <element signature="e#19228#19229#0" expanded="true" />
+            <element signature="e#21949#21950#0" expanded="true" />
+            <element signature="e#21985#21986#0" expanded="true" />
+            <element signature="e#22014#22015#0" expanded="true" />
+            <element signature="e#22042#22043#0" expanded="true" />
+            <element signature="e#22072#22073#0" expanded="true" />
+            <element signature="e#22102#22103#0" expanded="true" />
           </folding>
         </state>
       </provider>
