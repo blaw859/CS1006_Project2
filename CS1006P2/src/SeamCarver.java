@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import java.util.*;
 
@@ -13,6 +14,12 @@ public class SeamCarver {
     }
 
     public static double[][] initializeWeights(double[][] energyMatrix) {
+        Catch catcher = new Catch();
+        Throw thrower = new Throw();
+
+        thrower.addThrowListener(catcher);
+
+        thrower.Throw();
         double[][] weightArray = new double[energyMatrix.length][energyMatrix[0].length];
         int maxX = weightArray.length;
         int maxY = weightArray[0].length;
@@ -94,7 +101,7 @@ public class SeamCarver {
             //System.out.println("reinitializing matrices");
             seamsToRemove.add(seam);
 
-            try {
+            /*try {
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
                         ProjectGUI.incrementProgress();
@@ -104,7 +111,7 @@ public class SeamCarver {
                 java.lang.Thread.sleep(1);
             } catch (InterruptedException e) {
                 System.out.println("Error: " + e);
-            }
+            }*/
 
             //ProjectGUI.incrementProgress();
             //ProjectGUI.progress.repaint();
@@ -125,6 +132,21 @@ public class SeamCarver {
                 }
             }
         }
+        //ProjectGUI.incrementProgress();
+        //ProjectGUI.progress.repaint();
+        /*
+        try {
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    ProjectGUI.incrementProgress();
+                    ProjectGUI.progress.repaint();
+                }
+            });
+            java.lang.Thread.sleep(1);
+        } catch (InterruptedException e) {
+            System.out.println("Error: " + e);
+        }
+        */
         return outputArray;
     }
 

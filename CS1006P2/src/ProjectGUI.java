@@ -1,3 +1,4 @@
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -10,6 +11,9 @@ import javax.swing.event.ChangeListener;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.Dimension;
+import java.util.Observer;
+import java.util.List;
+import java.util.ArrayList;
 
 public class ProjectGUI extends JFrame {
 
@@ -20,6 +24,11 @@ public class ProjectGUI extends JFrame {
     private static int resolution = 0;
     public static JProgressBar progress;
     private static JLabel text3;
+    private int width = 0;
+    private int height = 0;
+    private int width2 = 0;
+    private int n = 0;
+    private int firstResolution = 0;
 
     public ProjectGUI() {
         initUI();
@@ -142,13 +151,15 @@ public class ProjectGUI extends JFrame {
                         } catch (IOException exception) {
                             System.out.println("Error " + exception);
                         }
+                        width = image.getWidth();
+                        height = image.getHeight();
                         topPanel.setBounds(5,12,200,120);
-                        slider.setMaximum(image.getWidth());
-                        slider.setValue(image.getWidth());
+                        slider.setMaximum(width);
+                        slider.setValue(width);
                         slider.setVisible(true);
                         slider2.setVisible(true);
-                        slider2.setMaximum(image.getHeight());
-                        slider2.setValue(image.getHeight());
+                        slider2.setMaximum(height);
+                        slider2.setValue(height);
                         button.setVisible(true);
                         //rightPanel.add(slider2);
                         //rightPanel.setVisible(true);
@@ -199,37 +210,52 @@ public class ProjectGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (file != null ) {
-                    int verticalSeams = image.getWidth() - resolution;
-                    progress.setValue(0);
-                    progress.setMaximum(verticalSeams - 1);
-                    progress.setVisible(true);
-                    progress.setMinimum(0);
-                    topPanel.setBounds(5,12,200,200);
-                    SeamCarver.setEnergyMatrices(image);
-                    double[][] verticalEnergyMatrix = image.getEnergyMatrix();
-                    //BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams,verticalEnergyMatrix));
-                    SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams,verticalEnergyMatrix);
-                    BufferedImage outputImage = image.RGBArrayToImage();
-                    JFrame frame3 = new JFrame("Carved Image");
+                    int verticalSeams;
+                    if (n > 0) {
+                        verticalSeams = firstResolution - resolution;
+                        firstResolution = resolution;
+                    } else {
+                        System.out.println(width + "    " + resolution);
+                        width2 = width - resolution;
+                        firstResolution = resolution;
+                        verticalSeams = width2;
+                        n++;
+                        slider.setMaximum(firstResolution);
+                    }
+                    if ((width > resolution && n == 1) || (n > 1 && firstResolution - resolution > 0)) {
+                        progress.setValue(0);
+                        progress.setMaximum(verticalSeams - 1);
+                        progress.setVisible(true);
+                        progress.setMinimum(0);
+                        topPanel.setBounds(5, 12, 200, 200);
+                        SeamCarver.setEnergyMatrices(image);
+                        double[][] verticalEnergyMatrix = image.getEnergyMatrix();
+                        //BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams,verticalEnergyMatrix));
+                        SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams, verticalEnergyMatrix);
+                        BufferedImage outputImage = image.RGBArrayToImage();
+                        JFrame frame3 = new JFrame("Carved Image");
 
-                    JPanel newImagePanel = new JPanel();
-                    JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
-                    newImageLabel.setSize(outputImage.getWidth(), outputImage.getHeight());
-                    frame3.add(newImageLabel);
-                    //frame3.setVisible(true);
-                    frame3.setSize(image.getWidth() + 20, image.getHeight()*3 + 50);
-                    frame3.pack();
-                    newImagePanel.add(newImageLabel);
+                        JPanel newImagePanel = new JPanel();
+                        JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
+                        newImageLabel.setSize(outputImage.getWidth(), outputImage.getHeight());
+                        frame3.add(newImageLabel);
+                        //frame3.setVisible(true);
+                        frame3.setSize(image.getWidth() + 20, image.getHeight() * 3 + 50);
+                        frame3.pack();
+                        newImagePanel.add(newImageLabel);
 
-                    frame3.setSize(outputImage.getWidth(), outputImage.getHeight());
-                    frame3.add(newImageLabel);
-                    frame3.setVisible(true);
+                        frame3.setSize(outputImage.getWidth(), outputImage.getHeight());
+                        frame3.add(newImageLabel);
+                        frame3.setVisible(true);
 
-                    try {
-                        File carvedImage = new File("CS1006P2/out/carvedImage.png");
-                        ImageIO.write(outputImage, "png", carvedImage);
-                    } catch (IOException exception) {
-                        System.out.println("Error: " + exception);
+                        try {
+                            File carvedImage = new File("CS1006P2/out/carvedImage.png");
+                            ImageIO.write(outputImage, "png", carvedImage);
+                        } catch (IOException exception) {
+                            System.out.println("Error: " + exception);
+                        }
+                    } else {
+                        text2.setText("Resolution is too small");
                     }
                 }
             }
@@ -243,20 +269,6 @@ public class ProjectGUI extends JFrame {
         progress.setName("Carving Progress");
 
         topPanel.add(progress);
-        //topPanel.setBounds(5,12,200,200);
-
-        //for (int i = 0; i < 5; i++) {
-        //    incrementProgress();
-            //progress.setValue(progress.getValue() + 1);
-        //}
-
-
-        //JPanel rightPanel = new JPanel();
-
-        //rightPanel.setAlignmentX(JPanel.RIGHT_ALIGNMENT);
-        //rightPanel.add(text3);
-        //rightPanel.add(progress);
-        //add(rightPanel);
     }
 
     public static void incrementProgress() {
@@ -270,18 +282,8 @@ public class ProjectGUI extends JFrame {
         progress.repaint();
     }
 
-    public class UpdateProgress implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            int val = progress.getValue();
-            if (val >= resolution) {
-                text3.setText("Seam Carving complete!");
-                return;
-            }
-            progress.setValue(val++);
-            progress.repaint();
-        }
+    public interface ThrowListener {
+        public void Catch();
     }
-
 
 }
