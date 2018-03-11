@@ -36,8 +36,6 @@ public class Image {
         height = bufferedImage.getHeight();
         rgbArray = bufferedImageToRGBArray();
         currentRGBArray = rgbArray;
-        //energyMatrix = createEnergyMatrix(currentRGBArray);
-        //verticalWeights = initializeWeights(energyMatrix);
     }
 
     public BufferedImage carveImage(int horizontalSeams, int verticalSeams) {
@@ -86,10 +84,10 @@ public class Image {
         return newArray;
     }
 
-    public int[][][] removeSeams(int numberOfSeams, double[][] energyMatrix, int[][][] rgbArray) {
+    public int[][][] addSeams(int numberOfSeams, double[][] energyMatrix, int[][][] rgbArray) {
         double[][] weightArray = initializeWeights(energyMatrix);
         double[][] currentEnergyMatrix = energyMatrix;
-        Queue<int[]> seamsToRemove = new LinkedList<>();
+        //Queue<int[]> seamsToAddNextTo = new LinkedList<>();
         for (int k = 0; k < numberOfSeams; k++) {
             int yLength = weightArray[0].length;
             int xLength = weightArray.length;
@@ -117,14 +115,106 @@ public class Image {
                         seam[y] = (x + xLength) % xLength;
                     }
                 }
-            }//0 = vertical 1 = horizontal
-            rgbArray = updateCurrentRGBArray(seam,rgbArray);
-           // System.out.println("RGBARRAY width = "+rgbArray.length+" height = "+rgbArray[0].length);
-            currentEnergyMatrix = this.updateCurrentEnergyMatrix(seam,currentEnergyMatrix,rgbArray);
-            //System.out.println("Energy array width = "+energyMatrix.length+" height = "+energyMatrix[0].length);
+            }
+            //rgbArray = updateCurrentRGBArray(seam,rgbArray);
+            //currentEnergyMatrix = this.updateCurrentEnergyMatrix(seam,currentEnergyMatrix,rgbArray);
             weightArray = initializeWeights(currentEnergyMatrix);
-            //System.out.println("Weight array width = "+weightArray.length+" height = "+weightArray[0].length);
-            //seamsToRemove.add(seam);
+        }
+        return rgbArray;
+    }
+
+    public int[] compareSeams(int[] seam,double[][] energyMatrix) {
+        double positiveSideSeamTotal = 0;
+        double negativeSideSeamTotal = 0;
+        int[] positiveSideSeam = new int[energyMatrix[0].length];
+        int[] negativeSideSeam = new int[energyMatrix[0].length];
+        for(int y = 0; y < energyMatrix[0].length; y++) {
+            positiveSideSeam[y] = seam[y];
+            negativeSideSeam[y] = seam[y];
+            if ((seam[y]+1) < energyMatrix.length) {
+                positiveSideSeam[y] = seam[y]+1;
+                positiveSideSeamTotal = energyMatrix[positiveSideSeam[y]][y];
+            } else if ((seam[y]-1) >= 0) {
+                negativeSideSeam[y] = seam[y]-1;
+                negativeSideSeamTotal = energyMatrix[negativeSideSeam[y]][y];
+            }
+        }
+        if (positiveSideSeamTotal <= negativeSideSeamTotal) {
+            return positiveSideSeam;
+        } else {
+            return negativeSideSeam;
+        }
+    }
+
+    public int[][] getAverageSeam(int[] seam1, int[] seam2, int[][][] rgbArray) {
+        int[][] newRGBSeam = new int[rgbArray[0].length][3];
+        for(int y = 0; y < rgbArray[0].length; y++) {
+            newRGBSeam[y][0] = (rgbArray[seam1[y]][y][0]+rgbArray[seam2[y]][y][0])/2;
+            newRGBSeam[y][1] = (rgbArray[seam1[y]][y][1]+rgbArray[seam2[y]][y][1])/2;
+            newRGBSeam[y][2] = (rgbArray[seam1[y]][y][2]+rgbArray[seam2[y]][y][2])/2;
+        }
+        return newRGBSeam;
+    }
+
+    public int[][][] addSeam(int[] seam,int[][][] rgbArray, double[][] energyMatrix ) {
+        int[] seamToInsert = compareSeams(seam,energyMatrix);
+        int[][] rgbSeamToInsert = getAverageSeam(seam,seamToInsert,rgbArray);
+        int[][][] newRGBArray = new int[rgbArray.length+1][rgbArray[0].length][3];
+        int seamToInsertOffset = 0;
+        if (seamToInsert[0] - seam[0] == 1) {
+            seamToInsertOffset = 0;
+        } else if (seamToInsert[0] - seam[0] == -1) {
+            seamToInsertOffset = -1;
+        }
+        for (int y = 0; y < rgbArray[0].length; y++) {
+            int offset = 0;
+            for (int x = 0; x < rgbArray.length; x++) {
+                if(seamToInsert[y]+seamToInsertOffset == x) {
+                    rgbArray[x][y] = rgbSeamToInsert[y];
+                    offset++;
+                } else {
+                    rgbArray[x+offset][y] = rgbArray[x][y];
+                }
+            }
+        }
+        return rgbArray;
+    }
+
+    public int[][][] removeSeams(int numberOfSeams, double[][] energyMatrix, int[][][] rgbArray) {
+        double[][] weightArray = initializeWeights(energyMatrix);
+        double[][] currentEnergyMatrix = energyMatrix;
+        //Queue<int[]> seamsToRemove = new LinkedList<>();
+        for (int k = 0; k < numberOfSeams; k++) {
+            int yLength = weightArray[0].length;
+            int xLength = weightArray.length;
+            int currentX = 0;
+            int[] seam = new int[yLength];
+            double lowestWeight = Double.MAX_VALUE;
+            for (int i = 0; i < xLength; i++) {
+                if (weightArray[i][yLength - 1] <= lowestWeight) {
+                    lowestWeight = weightArray[i][yLength - 1];
+                    currentX = i;
+                }
+            }
+            for (int y = yLength - 1; y >= 0; y--) {
+                lowestWeight = Double.MAX_VALUE;
+                int marker = currentX;
+                if (marker == 0) {
+                    marker = 1;
+                } else if (marker == weightArray.length - 1) {
+                    marker = weightArray.length - 2;
+                }
+                for (int x = marker - 1; x <= marker + 1; x++) {
+                    if (weightArray[(x + xLength) % xLength][y] <= lowestWeight) {
+                        currentX = (x + xLength) % xLength;
+                        lowestWeight = weightArray[(x + xLength) % xLength][y];
+                        seam[y] = (x + xLength) % xLength;
+                    }
+                }
+            }
+            rgbArray = updateCurrentRGBArray(seam,rgbArray);
+            currentEnergyMatrix = this.updateCurrentEnergyMatrix(seam,currentEnergyMatrix,rgbArray);
+            weightArray = initializeWeights(currentEnergyMatrix);
         }
         return rgbArray;
     }
