@@ -77,12 +77,21 @@ public class Image {
         return null;
     }
 
-    public BufferedImage addToImage(int seams) {
+    public BufferedImage addToImageVertical(int seams) {
         double[][]verticalEnergyMatrix = createEnergyMatrix(currentRGBArray);
         currentRGBArray = addSeams(seams,verticalEnergyMatrix,currentRGBArray);
         bufferedImage = RGBArrayToImage();
         return RGBArrayToImage();
         //currentRGBArray = removeSeams(verticalSeams,verticalEnergyMatrix,currentRGBArray);
+    }
+
+    public BufferedImage addToImageHorizontal(int seams) {
+        int[][][] transposedArray = transposeArray(currentRGBArray);
+        double[][]horizontalEnergyMatrix = createEnergyMatrix(transposedArray);
+        transposedArray = addSeams(seams,horizontalEnergyMatrix,transposedArray);
+        currentRGBArray = transposeArray(transposedArray);
+        return RGBArrayToImage();
+
     }
 
     public static int[][][] transposeArray(int[][][] arrayToTranspose) {

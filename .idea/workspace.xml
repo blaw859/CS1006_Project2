@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a26dc4cf-6522-448f-941b-477cb1a49bcb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CS1006P2/src/Catch.java" afterPath="$PROJECT_DIR$/CS1006P2/src/Catch.java" />
-      <change beforePath="$PROJECT_DIR$/CS1006P2/src/Image.java" afterPath="$PROJECT_DIR$/CS1006P2/src/Image.java" />
-      <change beforePath="$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java" afterPath="$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java" />
-      <change beforePath="$PROJECT_DIR$/CS1006P2/src/Throw.java" afterPath="$PROJECT_DIR$/CS1006P2/src/Throw.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI$UpdateProgress.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/SeamCarver$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/SeamCarver.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/Image.class" afterPath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/Image.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI$1.class" afterPath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI$2.class" afterPath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI.class" afterPath="$PROJECT_DIR$/CS1006P2/out/production/CS1006_Project2/ProjectGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS1006P2/src/Image.java" afterPath="$PROJECT_DIR$/CS1006P2/src/Image.java" />
     </list>
     <ignored path="$PROJECT_DIR$/CS1006P2/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,47 +22,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Image.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-740">
-              <caret line="188" column="72" lean-forward="false" selection-start-line="188" selection-start-column="72" selection-end-line="188" selection-end-column="72" />
+            <state relative-caret-position="216">
+              <caret line="80" column="35" lean-forward="true" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
               <folding>
                 <element signature="method#transposeArray#0;class#Image#0" expanded="false" />
                 <element signature="method#transposeArray#1;class#Image#0" expanded="false" />
                 <element signature="method#removeSeams#0;class#Image#0" expanded="false" />
                 <element signature="method#removeSeam#0;class#Image#0" expanded="false" />
                 <element signature="method#removeSeam#1;class#Image#0" expanded="false" />
-                <element signature="e#19193#19194#0" expanded="true" />
-                <element signature="e#19228#19229#0" expanded="true" />
-                <element signature="e#21949#21950#0" expanded="true" />
-                <element signature="e#21985#21986#0" expanded="true" />
-                <element signature="e#22014#22015#0" expanded="true" />
-                <element signature="e#22042#22043#0" expanded="true" />
-                <element signature="e#22072#22073#0" expanded="true" />
-                <element signature="e#22102#22103#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Catch.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CS1006P2/src/Catch.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Throw.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CS1006P2/src/Throw.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -65,7 +42,7 @@
       <file leaf-file-name="ImageCarver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageCarver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="36">
               <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
@@ -75,12 +52,10 @@
       <file leaf-file-name="ProjectGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="270" column="75" lean-forward="false" selection-start-line="270" selection-start-column="75" selection-end-line="270" selection-end-column="75" />
+            <state relative-caret-position="4482">
+              <caret line="270" column="69" lean-forward="false" selection-start-line="270" selection-start-column="69" selection-end-line="270" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#888#889#0" expanded="true" />
-                <element signature="e#912#913#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,9 +66,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#12718#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,10 +129,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1" />
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="812" />
+    <option name="x" value="1927" />
+    <option name="width" value="1910" />
+    <option name="height" value="765" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -176,21 +148,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="CS1006_Project22" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS1006_Project22" type="462c0819:PsiDirectoryNode" />
+              <item name="CS1006_Project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS1006_Project2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CS1006_Project22" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS1006_Project22" type="462c0819:PsiDirectoryNode" />
+              <item name="CS1006_Project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS1006_Project2" type="462c0819:PsiDirectoryNode" />
               <item name="CS1006P2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="CS1006_Project22" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS1006_Project22" type="462c0819:PsiDirectoryNode" />
+              <item name="CS1006_Project2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS1006_Project2" type="462c0819:PsiDirectoryNode" />
               <item name="CS1006P2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -198,10 +171,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -231,14 +203,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-    </configuration>
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="ImageCarver" />
@@ -252,6 +217,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="CS1006_Project2" />
       <envs />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -287,6 +259,12 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -321,12 +299,6 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -346,6 +318,7 @@
       <workItem from="1520790843756" duration="303000" />
       <workItem from="1520791162839" duration="11000" />
       <workItem from="1520791192156" duration="13584000" />
+      <workItem from="1520857925018" duration="520000" />
     </task>
     <task id="LOCAL-00001" summary="Added method to output an image of the energy matrix for debugging">
       <created>1520093573324</created>
@@ -407,10 +380,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29071000" />
+    <option name="totallyTimeSpent" value="29591000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -421,19 +394,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37786776" sideWeight="0.10208333" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32967034" sideWeight="0.8979167" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32979852" sideWeight="0.8979167" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24010417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24305555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -474,6 +447,46 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#transposeArray#0;class#Image#0" expanded="false" />
+            <element signature="method#transposeArray#1;class#Image#0" expanded="false" />
+            <element signature="method#removeSeams#0;class#Image#0" expanded="false" />
+            <element signature="method#removeSeam#0;class#Image#0" expanded="false" />
+            <element signature="method#removeSeam#1;class#Image#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageCarver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/SeamCarver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4482">
+          <caret line="270" column="69" lean-forward="true" selection-start-line="270" selection-start-column="69" selection-end-line="270" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/out/outputImage.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -549,47 +562,29 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/Catch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/Catch.java" />
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/SeamCarver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#12718#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CS1006P2/src/Throw.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CS1006P2/src/Throw.java" />
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/ProjectGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="270" column="75" lean-forward="false" selection-start-line="270" selection-start-column="75" selection-end-line="270" selection-end-column="75" />
+        <state relative-caret-position="4482">
+          <caret line="270" column="69" lean-forward="false" selection-start-line="270" selection-start-column="69" selection-end-line="270" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/ImageCarver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
+        <state relative-caret-position="36">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding />
         </state>
@@ -597,22 +592,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CS1006P2/src/Image.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-740">
-          <caret line="188" column="72" lean-forward="false" selection-start-line="188" selection-start-column="72" selection-end-line="188" selection-end-column="72" />
+        <state relative-caret-position="216">
+          <caret line="80" column="35" lean-forward="true" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
           <folding>
             <element signature="method#transposeArray#0;class#Image#0" expanded="false" />
             <element signature="method#transposeArray#1;class#Image#0" expanded="false" />
             <element signature="method#removeSeams#0;class#Image#0" expanded="false" />
             <element signature="method#removeSeam#0;class#Image#0" expanded="false" />
             <element signature="method#removeSeam#1;class#Image#0" expanded="false" />
-            <element signature="e#19193#19194#0" expanded="true" />
-            <element signature="e#19228#19229#0" expanded="true" />
-            <element signature="e#21949#21950#0" expanded="true" />
-            <element signature="e#21985#21986#0" expanded="true" />
-            <element signature="e#22014#22015#0" expanded="true" />
-            <element signature="e#22042#22043#0" expanded="true" />
-            <element signature="e#22072#22073#0" expanded="true" />
-            <element signature="e#22102#22103#0" expanded="true" />
           </folding>
         </state>
       </provider>
