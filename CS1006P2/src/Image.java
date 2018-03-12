@@ -1,17 +1,10 @@
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
 import static java.awt.image.BufferedImage.TYPE_4BYTE_ABGR;
-import java.util.Iterator;
-
-import static java.awt.image.BufferedImage.TYPE_4BYTE_ABGR;
-import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 
 public class Image {
     private int width;
@@ -105,7 +98,7 @@ public class Image {
      * @param seams the number of horizontal seams to add to the image
      * @return the buffered image generated from the RGB array
      */
-    private BufferedImage addToImageHorizontal(int seams) {
+    public BufferedImage addToImageHorizontal(int seams) {
         int[][][] transposedArray = transposeArray(currentRGBArray);
         double[][]horizontalEnergyMatrix = createEnergyMatrix(transposedArray);
         transposedArray = addSeams(seams,horizontalEnergyMatrix,transposedArray);
