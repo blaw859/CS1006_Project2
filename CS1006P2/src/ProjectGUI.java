@@ -414,7 +414,10 @@ public class ProjectGUI extends JFrame {
 
                 //The edited image is made into a file in the "out" directory"
                 try {
-                    File carvedImage = new File("CS1006P2/out/carvedImage.png");
+                    File carvedImage;
+                    String outPath = (System.getProperty("user.dir") + "/CS1006P2/out/carvedImage.png");
+                    outPath = outPath.replaceAll("CS1006P2/src/", "");
+                    carvedImage = new File(outPath);
                     ImageIO.write(carvedBufferedImage, "png", carvedImage);
                 } catch (IOException exception) {
                     System.out.println("Error: " + exception);

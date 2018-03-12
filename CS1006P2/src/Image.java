@@ -529,7 +529,7 @@ public class Image {
                 imgOut.setRGB(x,y,pixelColourInt);
             }
         }
-        try{
+        try {
             String outPath = (System.getProperty("user.dir") + "/CS1006P2/out/outputImage.png");
             outPath = outPath.replaceAll("CS1006P2/src/", "");
             outFile = new File(outPath);
