@@ -28,6 +28,10 @@ public class Image {
         this.currentRGBArray = currentRGBArray;
     }
 
+    public int[][][] getCurrentRGBArray() {
+        return currentRGBArray;
+    }
+
     //Constructs an image object
     public Image(String imageFilePath) throws IOException {
 
@@ -36,29 +40,33 @@ public class Image {
         height = bufferedImage.getHeight();
         rgbArray = bufferedImageToRGBArray();
         currentRGBArray = rgbArray;
+        energyMatrix = createEnergyMatrix(currentRGBArray);
+        outputEnergyMatrix(energyMatrix);
     }
 
     public BufferedImage carveImage(int horizontalSeams, int verticalSeams) {
-        if (horizontalSeams > 0 && verticalSeams > 0) {
-            double[][]verticalEnergyMatrix = createEnergyMatrix(currentRGBArray);
+        if (horizontalSeams >= 0 && verticalSeams >= 0) {
+            //double[][]verticalEnergyMatrix = createEnergyMatrix(currentRGBArray);
+            double[][]verticalEnergyMatrix = energyMatrix;
             currentRGBArray = removeSeams(verticalSeams,verticalEnergyMatrix,currentRGBArray);
-            System.out.println("Horizontal is done");
+            //System.out.println("Horizontal is done");
             int[][][] horizontalRGBArray = transposeArray(currentRGBArray);
-            System.out.println("vertical x = "+currentRGBArray.length+", y = "+currentRGBArray[0].length);
+            //System.out.println("vertical x = " + currentRGBArray.length+", y = " + currentRGBArray[0].length);
 
             double[][] horizontalEnergyMatrix = createEnergyMatrix(horizontalRGBArray);
             horizontalRGBArray = removeSeams(horizontalSeams,horizontalEnergyMatrix,horizontalRGBArray);
             currentRGBArray = transposeArray(horizontalRGBArray);
-            System.out.println("horizontal x = "+horizontalRGBArray.length+", y = "+horizontalRGBArray[0].length);
-            return RGBArrayToImage();
+            //System.out.println("horizontal x = "+horizontalRGBArray.length + ", y = "+horizontalRGBArray[0].length);
+            bufferedImage = RGBArrayToImage();
+            return bufferedImage;
         } /*else if (verticalSeams > 0) {
             //horizontalSeams = this.removeSeams()
         } else if (horizontalSeams > 0) {
 
         }*/
         return null;
-
     }
+
     public BufferedImage addToImage(int seams) {
         double[][]verticalEnergyMatrix = createEnergyMatrix(currentRGBArray);
         currentRGBArray = addSeams(seams,verticalEnergyMatrix,currentRGBArray);
@@ -96,7 +104,7 @@ public class Image {
         double[][] currentEnergyMatrix = energyMatrix;
         //Queue<int[]> seamsToAddNextTo = new LinkedList<>();
         for (int k = 0; k < numberOfSeams; k++) {
-            System.out.println("Adding seam "+k);
+            //System.out.println("Adding seam "+k);
             int yLength = weightArray[0].length;
             int xLength = weightArray.length;
             int currentX = 0;
@@ -126,7 +134,7 @@ public class Image {
             }
             //rgbArray = updateCurrentRGBArray(seam,rgbArray);
             rgbArray = addSeam(seam,rgbArray,energyMatrix);
-            System.out.println("Current RGB Array width is: "+rgbArray.length);
+            //System.out.println("Current RGB Array width is: "+rgbArray.length);
             currentEnergyMatrix = addToEnergyMatrix(seam,energyMatrix,rgbArray);
             //currentEnergyMatrix = this.updateCurrentEnergyMatrix(seam,currentEnergyMatrix,rgbArray);
             weightArray = initializeWeights(currentEnergyMatrix);
@@ -139,7 +147,7 @@ public class Image {
         double negativeSideSeamTotal = 0;
         int[] positiveSideSeam = new int[energyMatrix[0].length];
         int[] negativeSideSeam = new int[energyMatrix[0].length];
-        for(int y = 0; y < energyMatrix[0].length; y++) {
+        for (int y = 0; y < energyMatrix[0].length; y++) {
             positiveSideSeam[y] = seam[y];
             negativeSideSeam[y] = seam[y];
             if ((seam[y]+1) < energyMatrix.length) {
@@ -158,23 +166,23 @@ public class Image {
     }
     //private int count = 0;
     public int[][] getAverageSeam(int[] seam1, int[] seam2, int[][][] rgbArray) {
-        count++;
+        //count++;
         int[][] newRGBSeam = new int[rgbArray[0].length][3];
         for(int y = 0; y < rgbArray[0].length; y++) {
             newRGBSeam[y][0] = (rgbArray[seam1[y]][y][0]+rgbArray[seam2[y]][y][0])/2;
             //System.out.println("RGBArray seam1: "+rgbArray[seam1[y]][y][0]+ "RGBArray seam2: "+rgbArray[seam2[y]][y][0]);
             newRGBSeam[y][1] = (rgbArray[seam1[y]][y][1]+rgbArray[seam2[y]][y][1])/2;
             newRGBSeam[y][2] = (rgbArray[seam1[y]][y][2]+rgbArray[seam2[y]][y][2])/2;
-            if (newRGBSeam[y][0] == 0 || newRGBSeam[y][1] == 0 || newRGBSeam[y][2] == 0) {
+            /*if (newRGBSeam[y][0] == 0 || newRGBSeam[y][1] == 0 || newRGBSeam[y][2] == 0) {
                 for(int i = 0; i < seam1.length; i++) {
-                    System.out.println("Seam1 "+seam1[i]);
+                    //System.out.println("Seam1 "+seam1[i]);
                 }
                 for(int i = 0; i < seam2.length; i++) {
-                    System.out.println("Seam2 "+seam2[i]);
+                    //System.out.println("Seam2 "+seam2[i]);
                 }
                 //System.out.println(count);
                 System.exit(0);
-            }
+            }*/
         }
         //System.out.println
         return newRGBSeam;
@@ -283,7 +291,7 @@ public class Image {
 
     public double[][] addToEnergyMatrix(int[] seam, double[][] energyMatrix, int[][][] carvedRGB) {
         int[] seamToInsert = compareSeams(seam,energyMatrix);
-        double[][] newEnergyMatrix = new double[energyMatrix.length+1][energyMatrix[0].length];
+        //double[][] newEnergyMatrix = new double[energyMatrix.length+1][energyMatrix[0].length];
         int seamToInsertOffset = 0;
         if (seamToInsert[0] - seam[0] == 1) {
             seamToInsertOffset = 0;
@@ -291,13 +299,13 @@ public class Image {
             seamToInsertOffset = -1;
         }
         for (int y = 0; y < energyMatrix[0].length; y++) {
-            int offset = 0;
+            //int offset = 0;
             for (int x = 0; x < energyMatrix.length; x++) {
                 if(seamToInsert[y]+seamToInsertOffset == x) {
                     energyMatrix[x][y] = 0;
-                    offset++;
+                    //offset++;
                 } else {
-                    newEnergyMatrix[x+offset][y] = energyMatrix[x][y];
+                    //newEnergyMatrix[x+offset][y] = energyMatrix[x][y];
                 }
             }
         }
@@ -317,7 +325,7 @@ public class Image {
 
     public double[][] updateCurrentEnergyMatrix(int[] seam,double[][] energyMatrix,int[][][] carvedRGB) {
         //int[][][] carvedRGB = SeamCarver.removeSeam(seam,currentRGBArray);
-        System.out.println(energyMatrix.length);
+        //System.out.println(energyMatrix.length);
         energyMatrix = removeSeam(seam,energyMatrix);
 
         for (int y = 0; y < energyMatrix[0].length; y++) {
@@ -330,7 +338,7 @@ public class Image {
                 }
             }
         }
-        System.out.println("1"+energyMatrix.length);
+        //System.out.println("1"+energyMatrix.length);
         return energyMatrix;
     }
 
@@ -429,9 +437,6 @@ public class Image {
         int[] localRGBright = RGBArray[r][y];
         int[] localRGBabove = RGBArray[x][b];
         int[] localRGBbelow = RGBArray[x][a];
-
-
-
 
         //The difference between the left and right pixel are squared and added together
         //This value is then added to the difference between the above and below pixel and averaged

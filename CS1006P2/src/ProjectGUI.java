@@ -2,6 +2,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.File;
@@ -29,7 +31,8 @@ public class ProjectGUI extends JFrame {
     private int firstResolution2;
     private int height2;
     private int height;
-    private boolean add;
+    private boolean add = true;
+    private BufferedImage carvedBufferedImage = null;
 
     public ProjectGUI() {
         initUI();
@@ -54,25 +57,17 @@ public class ProjectGUI extends JFrame {
 
         setLocation((monitor.width/2)-(getSize().width/2) - 450, (monitor.height/2)-(getSize().height/2) - 200);
         setTitle("Image Carver");
-        setOpacity(1f);
         setBackground(Color.getHSBColor(200,94,105));
         setResizable(false);
         setVisible(true);
         setSize(970,400);
 
         JPanel topPanel = new JPanel();
-        topPanel.setBackground(Color.getHSBColor(150,93,90));
+        topPanel.setBackground(Color.getHSBColor(150,93,91));
         topPanel.setOpaque(true);
 
         JPanel bottomPanel = new JPanel();
-        bottomPanel.setBackground(Color.getHSBColor(200,94,105));
-
-        /*
-        JPanel rightPanel = new JPanel();
-        rightPanel.setBounds(200,5,120,200);
-        rightPanel.setVisible(false);
-        rightPanel.setAlignmentX(JPanel.RIGHT_ALIGNMENT);
-        */
+        bottomPanel.setBackground(Color.getHSBColor(200,90,105));
 
         JButton button = new JButton("Confirm selection");
         button.setVisible(false);
@@ -104,7 +99,7 @@ public class ProjectGUI extends JFrame {
         slider.setMinorTickSpacing(1);
         slider.setMajorTickSpacing(10);
         slider.setPaintTicks(true);
-        slider.setBackground(Color.getHSBColor(150,93,90));
+        slider.setBackground(Color.getHSBColor(150,93,91));
         slider.addChangeListener((ChangeEvent event) -> {
             resolution = slider.getValue();
             text2.setText("Horizontal Resolution: " + Integer.toString(resolution));
@@ -112,38 +107,99 @@ public class ProjectGUI extends JFrame {
 
         JTextArea textV = new JTextArea();
         textV.setVisible(false);
+        textV.setEditable(true);
+        textV.setLineWrap(true);
+        textV.setWrapStyleWord(true);
+        textV.setBounds(0,90,180,100);
+        textV.setAlignmentX(JLabel.LEFT);
         textV.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                resolution = Integer.parseInt(textV.getText());
+                if (!textV.getText().equals("")) {
+                    try {
+                    resolution2 = Integer.parseInt(textV.getText());
+                    } catch (NumberFormatException exception) {
+                        return;
+                    }
+                    text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
+                } else {
+                    resolution2 = image.getWidth();
+                }
+                text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
             }
             @Override
             public void removeUpdate(DocumentEvent e) {
-                resolution = Integer.parseInt(textV.getText());
+                if (!textV.getText().equals("")) {
+                    try {
+                    resolution2 = Integer.parseInt(textV.getText());
+                    } catch (NumberFormatException exception) {
+                        return;
+                    }
+                    text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
+                } else {
+                    resolution2 = image.getWidth();
+                }
+                text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
             }
             @Override
             public void changedUpdate(DocumentEvent e) {
+            }
+        });
+        textV.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                textV.setText("");
             }
         });
 
         JTextArea textH = new JTextArea();
         textH.setVisible(false);
+        textH.setEditable(true);
+        textH.setLineWrap(true);
+        textH.setWrapStyleWord(true);
+        textH.setBounds(0,50,180,100);
+        textH.setAlignmentX(JLabel.LEFT);
+        //textH.setBounds(5,100,30, 10);
         textH.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
-                resolution2 = Integer.parseInt(textV.getText());
+                if (!textH.getText().equals("")) {
+                    try {
+                        resolution = Integer.parseInt(textH.getText());
+                    } catch (NumberFormatException exception) {
+                        return;
+                    }
+                } else {
+                    resolution = image.getWidth();
+                }
+                text2.setText("Horizontal Resolution: " + Integer.toString(resolution));
             }
             @Override
             public void removeUpdate(DocumentEvent e) {
-                resolution2 = Integer.parseInt(textV.getText());
+                if (!textH.getText().equals("")) {
+                    try {
+                    resolution = Integer.parseInt(textH.getText());
+                    } catch (NumberFormatException exception) {
+                        return;
+                    }
+                } else {
+                    resolution = image.getWidth();
+                }
+                text2.setText("Horizontal Resolution: " + Integer.toString(resolution));
             }
             @Override
             public void changedUpdate(DocumentEvent e) {
             }
         });
+        textH.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                textH.setText("");
+            }
+        });
 
-        bottomPanel.add(textH);
-        bottomPanel.add(textV);
+        //bottomPanel.add(textH);
+        //bottomPanel.add(textV);
 
         JSlider slider2 = new JSlider(0,0,0); //The slider is 0 size before an image is selected
         slider2.setVisible(false);
@@ -151,7 +207,7 @@ public class ProjectGUI extends JFrame {
         slider2.setMinorTickSpacing(1);
         slider2.setMajorTickSpacing(10);
         slider2.setPaintTicks(true);
-        slider2.setBackground(Color.getHSBColor(150,93,90));
+        slider2.setBackground(Color.getHSBColor(150,93,91));
         slider2.addChangeListener((ChangeEvent event) -> {
             resolution2 = slider2.getValue();
             text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
@@ -165,6 +221,8 @@ public class ProjectGUI extends JFrame {
                 if (add) {
                     add = false;
                     mode.setText("Removal mode");
+                    textH.setText("Horizontal");
+                    textV.setText("Vertical");
                     textV.setVisible(true);
                     textH.setVisible(true);
                     slider.setVisible(false);
@@ -200,7 +258,8 @@ public class ProjectGUI extends JFrame {
                     if (filePath.contains("src")) {
                         filePath = filePath.substring(filePath.indexOf("src") + 3, filePath.length());
                     }
-                    if (file.exists() && (filePath.endsWith(".png")
+                    if (file.exists() &&
+                            (filePath.endsWith(".png")
                             || filePath.endsWith(".jpg")
                             || filePath.endsWith(".jpeg")
                             || filePath.endsWith(".JPG"))) {
@@ -213,7 +272,7 @@ public class ProjectGUI extends JFrame {
                         }
                         width = image.getWidth();
                         height = image.getHeight();
-                        topPanel.setBounds(5,12,200,120);
+                        topPanel.setBounds(5,12,200,300);
                         slider.setMaximum(image.getWidth());
                         slider.setValue(image.getWidth());
                         slider.setVisible(true);
@@ -222,8 +281,6 @@ public class ProjectGUI extends JFrame {
                         slider2.setValue(image.getHeight());
                         button.setVisible(true);
                         mode.setVisible(true);
-                        textH.setVisible(true);
-                        textV.setVisible(true);
                         bottomPanel.remove(fileChooser);
                         fileChooser.setVisible(false);
                         bottomPanel.add(slider2);
@@ -260,6 +317,9 @@ public class ProjectGUI extends JFrame {
         });
 
         topPanel.add(slider);
+        topPanel.add(textH);
+        topPanel.add(textV);
+        topPanel.add(mode);
         bottomPanel.setBounds(0,200,200,200);
 
         add(topPanel);
@@ -279,7 +339,7 @@ public class ProjectGUI extends JFrame {
                          verticalSeams = firstResolution - resolution;
                          firstResolution = resolution;
                      } else {
-                         System.out.println(width + "    " + resolution);
+                         //System.out.println(width + "    " + resolution);
                          width2 = width - resolution;
                          firstResolution = resolution;
                          firstResolution2 = resolution2;
@@ -290,80 +350,84 @@ public class ProjectGUI extends JFrame {
                          slider.setMaximum(firstResolution);
                          slider2.setMaximum(firstResolution2);
                      }
-                     if (!(add && n > 1 && (firstResolution < resolution || firstResolution2 < resolution2))) {
-                         //progress.setValue(0);
-                         //progress.setMaximum(verticalSeams - 1);
-                         //progress.setVisible(true);
-                         //progress.setMinimum(0);
-                         topPanel.setBounds(5, 12, 200, 200);
+                     //if (!(add && n > 1 && (firstResolution < resolution || firstResolution2 < resolution2))) {
+
+                         //topPanel.setBounds(5, 12, 200, 200);
                          //SeamCarver.setEnergyMatrices(image);
-                         double[][] verticalEnergyMatrix = image.getEnergyMatrix();
-                         //BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams,verticalEnergyMatrix));
-                         //SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams, verticalEnergyMatrix);
-                         BufferedImage outputImage = image.RGBArrayToImage();
-                         slider.setMaximum(width);
-                         slider2.setMaximum(height);
-                         textH.setText("");
-                         textV.setText("");
-                         JFrame frame3 = new JFrame("Carved Image");
-
-                         JPanel newImagePanel = new JPanel();
-                         JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
-                         newImageLabel.setSize(outputImage.getWidth(), outputImage.getHeight());
-                         frame3.add(newImageLabel);
-                         //frame3.setVisible(true);
-                         frame3.setSize(image.getWidth() + 20, image.getHeight() * 3 + 50);
-                         frame3.pack();
-                         newImagePanel.add(newImageLabel);
-
-                         frame3.setSize(outputImage.getWidth(), outputImage.getHeight());
-                         frame3.add(newImageLabel);
-                         frame3.setVisible(true);
-
-                         try {
-                             File carvedImage = new File("CS1006P2/out/carvedImage.png");
-                             ImageIO.write(outputImage, "png", carvedImage);
-                         } catch (IOException exception) {
-                             System.out.println("Error: " + exception);
-                         }
-                     } else {
-                         /*
-                         text2.setText("Resolution is too small");
-                         //verticalSeams = image.getWidth() - resolution;
-                         //horizontalSeams = image.getHeight() - resolution2;
-                         //progress.setValue(0);
-                         //progress.setMaximum(verticalSeams - 1);
-                         //progress.setVisible(true);
-                         //progress.setMinimum(0);
-                         topPanel.setBounds(5, 12, 200, 200);
-                         //SeamCarver.setEnergyMatrices(image);
-                         double[][] verticalEnergyMatrix = image.getEnergyMatrix();
-                         //BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams,verticalEnergyMatrix));
-                         //SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams,verticalEnergyMatrix);
-                         //BufferedImage outputImage = image.carveImage(horizontalSeams, verticalSeams);
-                         BufferedImage outputImage = image.addToImage(500);
-                         JFrame frame3 = new JFrame("Carved Image");
-
-                         JPanel newImagePanel = new JPanel();
-                         JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
-                         newImageLabel.setSize(outputImage.getWidth(), outputImage.getHeight());
-                         frame3.add(newImageLabel);
-                         frame3.setSize(image.getWidth() + 20, image.getHeight() * 3 + 50);
-                         frame3.pack();
-                         newImagePanel.add(newImageLabel);
-
-                         frame3.setSize(outputImage.getWidth(), outputImage.getHeight());
-                         frame3.add(newImageLabel);
-                         frame3.setVisible(true);
-
-                         try {
-                             File carvedImage = new File("CS1006P2/out/carvedImage.png");
-                             ImageIO.write(outputImage, "png", carvedImage);
-                         } catch (IOException exception) {
-                             System.out.println("Error: " + exception);
-                         }
-                         */
+                     double[][] verticalEnergyMatrix = image.getEnergyMatrix();
+                     if (horizontalSeams >= 0 && verticalSeams >= 0) {
+                         carvedBufferedImage = image.carveImage(horizontalSeams, verticalSeams);
+                     } else if(horizontalSeams == 0 && verticalSeams < 0) {
+                         verticalSeams *= -1;
+                         horizontalSeams *= -1;
+                         //carvedBufferedImage = image.RGBArrayToImage(image.addSeams(verticalSeams, image.getEnergyMatrix(), image.getCurrentRGBArray()));
+                         carvedBufferedImage = image.addToImage(verticalSeams);
                      }
+
+                     //BufferedImage outputImage = image.RGBArrayToImage();
+                     slider.setMaximum(width);
+                     slider2.setMaximum(height);
+                     mode.setVisible(true);
+                     JFrame frame3 = new JFrame("Carved Image");
+
+                     JPanel newImagePanel = new JPanel();
+                     JLabel newImageLabel = new JLabel(new ImageIcon(carvedBufferedImage));
+
+                     newImageLabel.setSize(carvedBufferedImage.getWidth(), carvedBufferedImage.getHeight());
+                     frame3.add(newImageLabel);
+                     //frame3.setVisible(true);
+                     frame3.setSize(image.getWidth() + 20, image.getHeight() * 3 + 50);
+                     frame3.pack();
+                     newImagePanel.add(newImageLabel);
+
+                     frame3.setSize(carvedBufferedImage.getWidth(), carvedBufferedImage.getHeight());
+                     frame3.add(newImageLabel);
+                     frame3.setVisible(true);
+
+                     try {
+                         File carvedImage = new File("CS1006P2/out/carvedImage.png");
+                         ImageIO.write(carvedBufferedImage, "png", carvedImage);
+                     } catch (IOException exception) {
+                         System.out.println("Error: " + exception);
+                     }
+                 //} else {
+                     /*
+                     text2.setText("Resolution is too small");
+                     //verticalSeams = image.getWidth() - resolution;
+                     //horizontalSeams = image.getHeight() - resolution2;
+                     //progress.setValue(0);
+                     //progress.setMaximum(verticalSeams - 1);
+                     //progress.setVisible(true);
+                     //progress.setMinimum(0);
+                     topPanel.setBounds(5, 12, 200, 200);
+                     //SeamCarver.setEnergyMatrices(image);
+                     double[][] verticalEnergyMatrix = image.getEnergyMatrix();
+                     //BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams,verticalEnergyMatrix));
+                     //SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams,verticalEnergyMatrix);
+                     //BufferedImage outputImage = image.carveImage(horizontalSeams, verticalSeams);
+                     BufferedImage outputImage = image.addToImage(500);
+                     JFrame frame3 = new JFrame("Carved Image");
+
+                     JPanel newImagePanel = new JPanel();
+                     JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
+                     newImageLabel.setSize(outputImage.getWidth(), outputImage.getHeight());
+                     frame3.add(newImageLabel);
+                     frame3.setSize(image.getWidth() + 20, image.getHeight() * 3 + 50);
+                     frame3.pack();
+                     newImagePanel.add(newImageLabel);
+
+                     frame3.setSize(outputImage.getWidth(), outputImage.getHeight());
+                     frame3.add(newImageLabel);
+                     frame3.setVisible(true);
+
+                     try {
+                         File carvedImage = new File("CS1006P2/out/carvedImage.png");
+                         ImageIO.write(outputImage, "png", carvedImage);
+                     } catch (IOException exception) {
+                         System.out.println("Error: " + exception);
+                     }
+                     */
+                 //}
                  }
              }
          });
