@@ -1,3 +1,4 @@
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
@@ -72,17 +73,25 @@ public class Image {
         } /*else if (verticalSeams > 0) {
             //horizontalSeams = this.removeSeams()
         } else if (horizontalSeams > 0) {
-
         }*/
         return null;
     }
 
-    public BufferedImage addToImage(int seams) {
+    public BufferedImage addToImageVertical(int seams) {
         double[][]verticalEnergyMatrix = createEnergyMatrix(currentRGBArray);
         currentRGBArray = addSeams(seams,verticalEnergyMatrix,currentRGBArray);
         bufferedImage = RGBArrayToImage();
         return RGBArrayToImage();
         //currentRGBArray = removeSeams(verticalSeams,verticalEnergyMatrix,currentRGBArray);
+    }
+
+    public BufferedImage addToImageHorizontal(int seams) {
+        int[][][] transposedArray = transposeArray(currentRGBArray);
+        double[][]horizontalEnergyMatrix = createEnergyMatrix(transposedArray);
+        transposedArray = addSeams(seams,horizontalEnergyMatrix,transposedArray);
+        currentRGBArray = transposeArray(transposedArray);
+        return RGBArrayToImage();
+
     }
 
     public static int[][][] transposeArray(int[][][] arrayToTranspose) {
@@ -203,11 +212,11 @@ public class Image {
         //System.out.println
         return newRGBSeam;
     }
-/*for(int y = 0; y < rgbArray[0].length; y++) {
-        for (int x = 0; x < rgbArray.length; x++) {
-            System.out.println("("+rgbArray[x][y][0]+","+rgbArray[x][y][1]+","+rgbArray[x][y][0]+")");
-        }
-    }*/
+    /*for(int y = 0; y < rgbArray[0].length; y++) {
+            for (int x = 0; x < rgbArray.length; x++) {
+                System.out.println("("+rgbArray[x][y][0]+","+rgbArray[x][y][1]+","+rgbArray[x][y][0]+")");
+            }
+        }*/
     public int[][][] addSeam(int[] seam,int[][][] rgbArray, double[][] energyMatrix ) {
         int[] seamToInsert = compareSeams(seam,energyMatrix);
         int[][] rgbSeamToInsert = getAverageSeam(seam,seamToInsert,rgbArray);
@@ -232,8 +241,8 @@ public class Image {
                     //System.out.println("Red:"+rgbSeamToInsert[y][0]+"Green:"+rgbSeamToInsert[y][1]+"Blue:"+rgbSeamToInsert[y][0]);
                     offset++;
                 } /*else {*/
-                    //System.out.println(y+ ": Putting "+rgbArray[x][y][0]+" into "+(x+offset));
-                    newRGBArray[x+offset][y] = rgbArray[x][y];
+                //System.out.println(y+ ": Putting "+rgbArray[x][y][0]+" into "+(x+offset));
+                newRGBArray[x+offset][y] = rgbArray[x][y];
 
                 //}
             }
@@ -515,8 +524,8 @@ public class Image {
             }
         }
         try{
-           outFile = new File ("CS1006P2/out/outputImage.png");
-           ImageIO.write(imgOut,"png",outFile);
+            outFile = new File ("CS1006P2/out/outputImage.png");
+            ImageIO.write(imgOut,"png",outFile);
         } catch (IOException e) {
             System.out.println("Error:" + e);
         }
