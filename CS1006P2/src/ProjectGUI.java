@@ -1,29 +1,32 @@
 import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JSlider;
+import javax.swing.JFileChooser;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.File;
 import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.Dimension;
 
 public class ProjectGUI extends JFrame {
 
-    private static Image image = null;
-    private int resolution2;
+    private Image image = null;
+    private int resolution2 = 0;
     private File file;
     private String filePath;
-    private static int resolution = 0;
-    public static JProgressBar progress;
-    private static JLabel text3;
+    private int resolution = 0;
     private int firstResolution;
     private int width2;
     private int width;
@@ -40,10 +43,10 @@ public class ProjectGUI extends JFrame {
 
     private void initUI() {
 
+        //The dimensions of the user's monitor is used to specify JFrame position
         Dimension monitor = Toolkit.getDefaultToolkit().getScreenSize();
 
-        //JFrame frame3 = new JFrame("Carved Image");
-
+        //This window displays the energy matrix and the selected image
         JFrame frame2 = new JFrame("New Image");
         frame2.setLocation((((monitor.width)/3)*2-(getSize().width)/2), 0);
         frame2.setVisible(false);
@@ -69,16 +72,20 @@ public class ProjectGUI extends JFrame {
         JPanel bottomPanel = new JPanel();
         bottomPanel.setBackground(Color.getHSBColor(200,90,105));
 
+        //The button initialises the seam carving or addition
         JButton button = new JButton("Confirm selection");
         button.setVisible(false);
 
+        //This label explains the current horizontal resolution
         JLabel text2 = new JLabel("No resolution selected");
         text2.setAlignmentX(JLabel.LEFT);
 
+        //This label explains the current selected file
         JLabel text1 = new JLabel("No file selected");
         text1.setAlignmentX(JLabel.LEFT);
 
-        text3 = new JLabel();
+        //This label explains the vertical resolution
+        JLabel text3 = new JLabel();
         text3.setAlignmentX(JLabel.LEFT);
 
         topPanel.add(text1);
@@ -89,12 +96,11 @@ public class ProjectGUI extends JFrame {
         topPanel.setBounds(5,12,200,52);
         topPanel.setAlignmentX(JLabel.LEFT_ALIGNMENT);
 
-        //bottomPanel.setBounds(0,300,200,200);
         bottomPanel.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
 
         //Adds the slider which is used to select the new resolution
         //The max resolution is at 0, until an image is selected
-        JSlider slider = new JSlider(0,0,0); //The slider is 0 size before an image is selected
+        JSlider slider = new JSlider(0,0,0);
         slider.setVisible(false);
         slider.setMinorTickSpacing(1);
         slider.setMajorTickSpacing(10);
@@ -105,6 +111,7 @@ public class ProjectGUI extends JFrame {
             text2.setText("Horizontal Resolution: " + Integer.toString(resolution));
         });
 
+        //Textbox for inputting vertical resolution
         JTextArea textV = new JTextArea();
         textV.setVisible(false);
         textV.setEditable(true);
@@ -112,6 +119,9 @@ public class ProjectGUI extends JFrame {
         textV.setWrapStyleWord(true);
         textV.setBounds(0,90,180,100);
         textV.setAlignmentX(JLabel.LEFT);
+
+        //A documentlistener is used to specify what resolution to expand to based
+        //on the text in the editable textboxes
         textV.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -123,7 +133,7 @@ public class ProjectGUI extends JFrame {
                     }
                     text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
                 } else {
-                    resolution2 = image.getWidth();
+                    resolution2 = image.getHeight();
                 }
                 text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
             }
@@ -137,7 +147,7 @@ public class ProjectGUI extends JFrame {
                     }
                     text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
                 } else {
-                    resolution2 = image.getWidth();
+                    resolution2 = image.getHeight();
                 }
                 text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
             }
@@ -145,6 +155,8 @@ public class ProjectGUI extends JFrame {
             public void changedUpdate(DocumentEvent e) {
             }
         });
+
+        //The text in the textboxes are removed on the box is selected
         textV.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -152,6 +164,7 @@ public class ProjectGUI extends JFrame {
             }
         });
 
+        //Textbox for inputting horizontal resolution
         JTextArea textH = new JTextArea();
         textH.setVisible(false);
         textH.setEditable(true);
@@ -159,7 +172,9 @@ public class ProjectGUI extends JFrame {
         textH.setWrapStyleWord(true);
         textH.setBounds(0,50,180,100);
         textH.setAlignmentX(JLabel.LEFT);
-        //textH.setBounds(5,100,30, 10);
+
+        //A documentlistener is used to specify what resolution to expand to based
+        //on the text in the editable textboxes
         textH.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -191,6 +206,8 @@ public class ProjectGUI extends JFrame {
             public void changedUpdate(DocumentEvent e) {
             }
         });
+
+        //The text in the textboxes are removed on the box is selected
         textH.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -198,9 +215,7 @@ public class ProjectGUI extends JFrame {
             }
         });
 
-        //bottomPanel.add(textH);
-        //bottomPanel.add(textV);
-
+        //The slider is used to select the vertical resolution
         JSlider slider2 = new JSlider(0,0,0); //The slider is 0 size before an image is selected
         slider2.setVisible(false);
         slider2.setOrientation(JSlider.VERTICAL);
@@ -213,106 +228,107 @@ public class ProjectGUI extends JFrame {
             text3.setText("Vertical Resolution: " + Integer.toString(resolution2));
         });
 
+        //The mode button alternates between the slider and text input modes
         JButton mode = new JButton("Addition mode");
         mode.setVisible(false);
-        mode.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (add) {
-                    add = false;
-                    mode.setText("Removal mode");
-                    textH.setText("Horizontal");
-                    textV.setText("Vertical");
-                    textV.setVisible(true);
-                    textH.setVisible(true);
-                    slider.setVisible(false);
-                    slider2.setVisible(false);
-                } else {
-                    add = true;
-                    mode.setText("Addition mode");
-                    textV.setVisible(false);
-                    textH.setVisible(false);
-                    slider.setVisible(true);
-                    slider2.setVisible(true);
-                }
-
+        mode.addActionListener(e -> {
+            if (add) {
+                add = false;
+                mode.setText("Removal mode");
+                textH.setText("Horizontal");
+                textV.setText("Vertical");
+                textV.setVisible(true);
+                textH.setVisible(true);
+                slider.setVisible(false);
+                slider2.setVisible(false);
+            } else {
+                add = true;
+                mode.setText("Addition mode");
+                textV.setVisible(false);
+                textH.setVisible(false);
+                slider.setVisible(true);
+                slider2.setVisible(true);
             }
+
         });
 
         //This class will allow the user to select an image easily
         JFileChooser fileChooser = new JFileChooser();
-        File currentDir = new File(System.getProperty("user.dir") + "/CS1006P2/src/images");
-        fileChooser.setCurrentDirectory(currentDir);
+
+        //Only image files are allowed
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Images", "png", "jpg", "JPG", "jpeg");
+
+        fileChooser.setFileFilter(filter);
         fileChooser.setVisible(true);
         bottomPanel.add(fileChooser);
         fileChooser.setBounds(100,100,200,200);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 
-        fileChooser.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int returnVal = fileChooser.showOpenDialog(ProjectGUI.this);
-                if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    file = fileChooser.getSelectedFile();
-                    filePath = file.getAbsolutePath();
-                    if (filePath.contains("src")) {
-                        filePath = filePath.substring(filePath.indexOf("src") + 3, filePath.length());
-                    }
-                    if (file.exists() &&
-                            (filePath.endsWith(".png")
-                            || filePath.endsWith(".jpg")
-                            || filePath.endsWith(".jpeg")
-                            || filePath.endsWith(".JPG"))) {
+        //This process is run once a file has been selected
+        fileChooser.addActionListener(e -> {
+            int returnVal = fileChooser.showOpenDialog(ProjectGUI.this);
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                file = fileChooser.getSelectedFile();
+                file = new File(fileChooser.getCurrentDirectory() + "/" + fileChooser.getName(fileChooser.getSelectedFile()));
+                filePath = file.getAbsolutePath();
+                filePath = filePath.replaceAll(" ", "");
+                text1.setText(file.getName() + " is selected");
 
-                        text1.setText(file.getName() + " is selected");
-                        try {
-                            image = new Image(filePath);
-                        } catch (IOException exception) {
-                            System.out.println("Error " + exception);
-                        }
-                        width = image.getWidth();
-                        height = image.getHeight();
-                        topPanel.setBounds(5,12,200,300);
-                        slider.setMaximum(image.getWidth());
-                        slider.setValue(image.getWidth());
-                        slider.setVisible(true);
-                        slider2.setVisible(true);
-                        slider2.setMaximum(image.getHeight());
-                        slider2.setValue(image.getHeight());
-                        button.setVisible(true);
-                        mode.setVisible(true);
-                        bottomPanel.remove(fileChooser);
-                        fileChooser.setVisible(false);
-                        bottomPanel.add(slider2);
-                        bottomPanel.setAlignmentX(JPanel.RIGHT_ALIGNMENT);
-                        bottomPanel.revalidate();
-                        setSize(480,250);
-                        repaint();
-
-                        JLabel imageLabel = new JLabel(new ImageIcon(image.getBufferedImage()));
-
-                        JLabel energyLabel = new JLabel(new ImageIcon("CS1006P2/out/outputImage.png"));
-                        energyLabel.setAlignmentX(LEFT_ALIGNMENT);
-
-                        energyPanel.add(energyLabel);
-                        energyPanel.setAlignmentX(JPanel.LEFT_ALIGNMENT);
-                        energyPanel.setBounds(5, 5, image.getWidth(), image.getHeight());
-                        energyPanel.setVisible(true);
-
-                        imagePanel.add(imageLabel);
-                        imagePanel.setAlignmentX(JPanel.RIGHT_ALIGNMENT);
-                        imagePanel.setBounds(3,image.getHeight() + 5,image.getWidth(), image.getHeight());
-                        imagePanel.setVisible(true);
-
-                        frame2.add(imagePanel);
-                        frame2.add(energyPanel);
-                        frame2.setSize(image.getWidth() + 20, image.getHeight()*2 + 50);
-
-                        frame2.setVisible(true);
-                    } else {
-                        text1.setText("Not a valid filetype");
-                    }
+                try {
+                    image = new Image(file); //An image object is created based on the selected file
+                } catch (IOException exception) {
+                    System.out.println("Error " + exception);
                 }
+
+                //The filechooser is removed and the mode button sliders are added
+                width = image.getWidth();
+                height = image.getHeight();
+                topPanel.setBounds(5,12,200,170);
+                slider.setMaximum(image.getWidth());
+                slider.setValue(image.getWidth());
+                slider.setVisible(true);
+
+                slider2.setVisible(true);
+                slider2.setMaximum(image.getHeight());
+                slider2.setValue(image.getHeight());
+
+                button.setVisible(true);
+                mode.setVisible(true);
+                fileChooser.setVisible(false);
+
+                bottomPanel.remove(fileChooser);
+                bottomPanel.add(slider2);
+                bottomPanel.setAlignmentX(JPanel.RIGHT_ALIGNMENT);
+                bottomPanel.revalidate();
+                setSize(480,250);
+                repaint();
+
+                JLabel imageLabel = new JLabel(new ImageIcon(image.getBufferedImage()));
+
+                //The generated energy matrix image is put in an imageicon and displayed
+                String outPath = (System.getProperty("user.dir") + "/CS1006P2/out/outputImage.png");
+                outPath = outPath.replaceAll("CS1006P2/src/", "");
+                JLabel energyLabel = new JLabel(new ImageIcon(outPath));
+                energyLabel.setAlignmentX(LEFT_ALIGNMENT);
+
+                energyPanel.add(energyLabel);
+                energyPanel.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+                energyPanel.setBounds(5, 5, image.getWidth(), image.getHeight());
+                energyPanel.setVisible(true);
+
+                imagePanel.add(imageLabel);
+                imagePanel.setAlignmentX(JPanel.RIGHT_ALIGNMENT);
+                imagePanel.setBounds(3,image.getHeight() + 5,image.getWidth(), image.getHeight());
+                imagePanel.setVisible(true);
+
+                //A new window is created to display the energy matrix and selected image
+                frame2.add(imagePanel);
+                frame2.add(energyPanel);
+                frame2.setSize(image.getWidth() + 20, image.getHeight()*2 + 50);
+
+                frame2.setVisible(true);
+            } else {
+                text1.setText("Not a valid filetype");
             }
         });
 
@@ -327,155 +343,86 @@ public class ProjectGUI extends JFrame {
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        button.addActionListener(new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-                 if (file != null) {
-                     int verticalSeams;
-                     int horizontalSeams;
-                     mode.setVisible(false);
-                     if (n > 0) {
-                         horizontalSeams = firstResolution2 - resolution2;
-                         verticalSeams = firstResolution - resolution;
-                         firstResolution = resolution;
-                     } else {
-                         width2 = width - resolution;
-                         firstResolution = resolution;
-                         firstResolution2 = resolution2;
-                         height2 = height - resolution2;
-                         horizontalSeams = height2;
-                         verticalSeams = width2;
-                         n++;
-                         slider.setMaximum(firstResolution);
-                         slider2.setMaximum(firstResolution2);
-                     }
-                     //if (!(add && n > 1 && (firstResolution < resolution || firstResolution2 < resolution2))) {
+        //The seam carving and/or addition is started once the button is pressed
+        button.addActionListener(e -> {
+            if (file != null) {
+                int verticalSeams;
+                int horizontalSeams;
+                mode.setVisible(false);
 
-                         //topPanel.setBounds(5, 12, 200, 200);
-                         //SeamCarver.setEnergyMatrices(image);
-                     double[][] verticalEnergyMatrix = image.getEnergyMatrix();
-                     if (horizontalSeams >= 0 && verticalSeams >= 0) {
-                         carvedBufferedImage = image.carveImage(horizontalSeams, verticalSeams);
-                     } else if(horizontalSeams < 0 && verticalSeams > 0) {
-                         image = new Image(image.carveImage(0, verticalSeams));
-                         horizontalSeams *= -1;
-                         carvedBufferedImage = image.addToImageHorizontal(horizontalSeams);
-                     } else if (horizontalSeams > 0 && verticalSeams < 0) {
-                         image = new Image(image.carveImage(horizontalSeams,0));
-                         verticalSeams *= -1;
-                         carvedBufferedImage = image.addToImageVertical(verticalSeams);
-                     } else {
-                         verticalSeams *= -1;
-                         horizontalSeams *= -1;
-                         image = new Image(image.addToImageHorizontal(horizontalSeams));
-                         //carvedBufferedImage = image.RGBArrayToImage(image.addSeams(verticalSeams, image.getEnergyMatrix(), image.getCurrentRGBArray()));
-                         carvedBufferedImage = image.addToImageVertical(verticalSeams);
-                     }
+                if(resolution < 0) {
+                    resolution *= -1;
+                }
+                if (resolution2 < 0) {
+                    resolution2 *= -1;
+                }
 
-                     //BufferedImage outputImage = image.RGBArrayToImage();
-                     slider.setMaximum(width);
-                     slider2.setMaximum(height);
-                     mode.setVisible(true);
-                     JFrame frame3 = new JFrame("Carved Image");
+                if (n > 0) {
+                    horizontalSeams = firstResolution2 - resolution2;
+                    verticalSeams = firstResolution - resolution;
+                    firstResolution = resolution;
+                } else {
+                    width2 = width - resolution;
+                    firstResolution = resolution;
+                    firstResolution2 = resolution2;
+                    height2 = height - resolution2;
+                    horizontalSeams = height2;
+                    verticalSeams = width2;
+                    n++;
+                    slider.setMaximum(firstResolution);
+                    slider2.setMaximum(firstResolution2);
+                }
 
-                     JPanel newImagePanel = new JPanel();
-                     JLabel newImageLabel = new JLabel(new ImageIcon(carvedBufferedImage));
+                //These if statements account for when different operations are done on the
+                //vertical and horizontal components of the image
+                if (horizontalSeams >= 0 && verticalSeams >= 0) {
+                    carvedBufferedImage = image.carveImage(horizontalSeams, verticalSeams);
+                } else if(horizontalSeams < 0 && verticalSeams > 0) {
+                    image = new Image(image.carveImage(0, verticalSeams));
+                    horizontalSeams *= -1;
+                    carvedBufferedImage = image.addToImageHorizontal(horizontalSeams);
+                } else if (horizontalSeams > 0 && verticalSeams < 0) {
+                    image = new Image(image.carveImage(horizontalSeams,0));
+                    verticalSeams *= -1;
+                    carvedBufferedImage = image.addToImageVertical(verticalSeams);
+                } else {
+                    verticalSeams *= -1;
+                    horizontalSeams *= -1;
+                    image = new Image(image.addToImageHorizontal(horizontalSeams));
+                    carvedBufferedImage = image.addToImageVertical(verticalSeams);
+                }
 
-                     newImageLabel.setSize(carvedBufferedImage.getWidth(), carvedBufferedImage.getHeight());
-                     frame3.add(newImageLabel);
-                     //frame3.setVisible(true);
-                     frame3.setSize(image.getWidth() + 20, image.getHeight() * 3 + 50);
-                     frame3.pack();
-                     newImagePanel.add(newImageLabel);
+                slider.setMaximum(width);
+                slider2.setMaximum(height);
+                mode.setVisible(true);
 
-                     frame3.setSize(carvedBufferedImage.getWidth(), carvedBufferedImage.getHeight());
-                     frame3.add(newImageLabel);
-                     frame3.setVisible(true);
+                //This window displays the carved and/or expanded image
+                JFrame frame3 = new JFrame("Carved Image");
 
-                     try {
-                         File carvedImage = new File("CS1006P2/out/carvedImage.png");
-                         ImageIO.write(carvedBufferedImage, "png", carvedImage);
-                     } catch (IOException exception) {
-                         System.out.println("Error: " + exception);
-                     }
+                JPanel newImagePanel = new JPanel();
+                JLabel newImageLabel = new JLabel(new ImageIcon(carvedBufferedImage));
 
-                     image = new Image(carvedBufferedImage);
+                newImageLabel.setSize(carvedBufferedImage.getWidth(), carvedBufferedImage.getHeight());
+                frame3.add(newImageLabel);
+                frame3.setSize(image.getWidth() + 20, image.getHeight() * 3 + 50);
+                frame3.pack();
+                newImagePanel.add(newImageLabel);
 
-                 //} else {
-                     /*
-                     text2.setText("Resolution is too small");
-                     //verticalSeams = image.getWidth() - resolution;
-                     //horizontalSeams = image.getHeight() - resolution2;
-                     //progress.setValue(0);
-                     //progress.setMaximum(verticalSeams - 1);
-                     //progress.setVisible(true);
-                     //progress.setMinimum(0);
-                     topPanel.setBounds(5, 12, 200, 200);
-                     //SeamCarver.setEnergyMatrices(image);
-                     double[][] verticalEnergyMatrix = image.getEnergyMatrix();
-                     //BufferedImage outputImage = image.removeSeams(SeamCarver.findSeams(SeamCarver.verticalWeights, verticalSeams,verticalEnergyMatrix));
-                     //SeamCarver.findSeams(SeamCarver.verticalWeights,verticalSeams,verticalEnergyMatrix);
-                     //BufferedImage outputImage = image.carveImage(horizontalSeams, verticalSeams);
-                     BufferedImage outputImage = image.addToImage(500);
-                     JFrame frame3 = new JFrame("Carved Image");
+                frame3.setSize(carvedBufferedImage.getWidth(), carvedBufferedImage.getHeight());
+                frame3.add(newImageLabel);
+                frame3.setVisible(true);
 
-                     JPanel newImagePanel = new JPanel();
-                     JLabel newImageLabel = new JLabel(new ImageIcon(outputImage));
-                     newImageLabel.setSize(outputImage.getWidth(), outputImage.getHeight());
-                     frame3.add(newImageLabel);
-                     frame3.setSize(image.getWidth() + 20, image.getHeight() * 3 + 50);
-                     frame3.pack();
-                     newImagePanel.add(newImageLabel);
+                //The edited image is made into a file in the "out" directory"
+                try {
+                    File carvedImage = new File("CS1006P2/out/carvedImage.png");
+                    ImageIO.write(carvedBufferedImage, "png", carvedImage);
+                } catch (IOException exception) {
+                    System.out.println("Error: " + exception);
+                }
 
-                     frame3.setSize(outputImage.getWidth(), outputImage.getHeight());
-                     frame3.add(newImageLabel);
-                     frame3.setVisible(true);
-
-                     try {
-                         File carvedImage = new File("CS1006P2/out/carvedImage.png");
-                         ImageIO.write(outputImage, "png", carvedImage);
-                     } catch (IOException exception) {
-                         System.out.println("Error: " + exception);
-                     }
-                     */
-                 //}
-                 }
-             }
-         });
-
-        progress = new JProgressBar();
-        progress.setStringPainted(true);
-        progress.setValue(0);
-        progress.setVisible(false);
-        progress.setMinimum(0);
-        progress.setName("Carving Progress");
-
-        topPanel.add(progress);
-    }
-
-    /*
-    public static void incrementProgress() {
-        int val = progress.getValue();
-        val += 1;
-        if (val >= image.getWidth() - resolution) {
-            text3.setText("Seam Carving complete!");
-            return;
-        }
-        progress.setValue(val);
-        progress.repaint();
-    }
-
-    public class UpdateProgress implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            int val = progress.getValue();
-            if (val >= resolution) {
-                text3.setText("Seam Carving complete!");
-                return;
+                //A new image object is created based on the carved or expanded image
+                image = new Image(carvedBufferedImage);
             }
-            progress.setValue(val++);
-            progress.repaint();
-        }
-    }*/
-
+        });
+    }
 }
