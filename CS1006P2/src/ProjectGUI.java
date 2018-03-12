@@ -339,7 +339,6 @@ public class ProjectGUI extends JFrame {
                          verticalSeams = firstResolution - resolution;
                          firstResolution = resolution;
                      } else {
-                         //System.out.println(width + "    " + resolution);
                          width2 = width - resolution;
                          firstResolution = resolution;
                          firstResolution2 = resolution2;
@@ -357,11 +356,20 @@ public class ProjectGUI extends JFrame {
                      double[][] verticalEnergyMatrix = image.getEnergyMatrix();
                      if (horizontalSeams >= 0 && verticalSeams >= 0) {
                          carvedBufferedImage = image.carveImage(horizontalSeams, verticalSeams);
-                     } else if(horizontalSeams == 0 && verticalSeams < 0) {
+                     } else if(horizontalSeams < 0 && verticalSeams > 0) {
+                         image = new Image(image.carveImage(0, verticalSeams));
+                         horizontalSeams *= -1;
+                         carvedBufferedImage = image.addToImageHorizontal(horizontalSeams);
+                     } else if (horizontalSeams > 0 && verticalSeams < 0) {
+                         image = new Image(image.carveImage(horizontalSeams,0));
+                         verticalSeams *= -1;
+                         carvedBufferedImage = image.addToImageVertical(verticalSeams);
+                     } else {
                          verticalSeams *= -1;
                          horizontalSeams *= -1;
+                         image = new Image(image.addToImageHorizontal(horizontalSeams));
                          //carvedBufferedImage = image.RGBArrayToImage(image.addSeams(verticalSeams, image.getEnergyMatrix(), image.getCurrentRGBArray()));
-                         carvedBufferedImage = image.addToImage(verticalSeams);
+                         carvedBufferedImage = image.addToImageVertical(verticalSeams);
                      }
 
                      //BufferedImage outputImage = image.RGBArrayToImage();
