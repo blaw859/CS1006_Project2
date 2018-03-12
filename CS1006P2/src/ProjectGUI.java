@@ -390,6 +390,9 @@ public class ProjectGUI extends JFrame {
                      } catch (IOException exception) {
                          System.out.println("Error: " + exception);
                      }
+
+                     image = new Image(carvedBufferedImage);
+
                  //} else {
                      /*
                      text2.setText("Resolution is too small");
